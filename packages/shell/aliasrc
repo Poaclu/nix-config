@@ -1,0 +1,79 @@
+### ALIASES ###
+
+# Changing "ls" to "exa"
+alias ls='exa --color=always --group-directories-first'
+alias la='exa -a --color=always --group-directories-first'
+alias ll='exa -la --color=always --group-directories-first'
+alias tree='exa --tree --color=always --group-directories-first'
+alias ltree='exa --tree --long --group-directories-first'
+
+# Fixing ln to help
+alias ln="ln -rsf"
+
+# get fastest mirrors
+alias mirror="{{run}} reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
+alias mirrord="{{run}} reflector --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist"
+alias mirrors="{{run}} reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist"
+alias mirrora="{{run}} reflector --latest 50 --number 20 --sort age --save /etc/pacman.d/mirrorlist"
+
+# Colorize grep output (good for log files)
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+
+# confirm before overwriting something
+alias cp="cp -iv"
+alias mv="mv -iv"
+alias rm="rm -virf"
+
+# bare git repo alias for dotfiles
+alias ldots="lazygit --git-dir=$HOME/.dotfiles --work-tree=$HOME"
+alias dots="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
+alias dspull="dots submodule foreach git pull --rebase origin master"
+alias dspush="dots submodule sync && dots submodule update"
+
+# use neovim instead of vim
+alias vim="nvim"
+
+# the terminal rickroll
+alias rr='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
+
+# help kitty terminal with ssh
+alias ksh="kitty +kitten ssh"
+
+#few shortcuts just in case
+alias ..='cd ..'
+
+#just a troll
+alias hackwow="cmatrix | lolcat"
+
+#fix obvious typo's
+alias cd..='cd ..'
+alias pdw="pwd"
+
+#continue download
+alias wget="wget -c"
+
+#grub update
+alias update-grub="{{run}} grub-mkconfig -o /boot/grub/grub.cfg"
+
+#add new fonts
+alias update-fc='{{run}} fc-cache -fv'
+
+#check vulnerabilities microcode
+alias microcode='grep . /sys/devices/system/cpu/vulnerabilities/*'
+
+#clear shortcut
+alias cls="clear && fastfetch"
+
+#Shutdown and reboot shortcuts
+alias ssn="{{run}} shutdown now"
+alias sr="{{run}} reboot"
+
+#from tech titus
+alias zshrc='${=EDITOR} ~/.zshrc' # Quick access to the ~/.zshrc file
+
+alias su="su -l"
+alias ytop="ytop -abps"
+alias cat="bat"
+alias cargo="RUSTC_WRAPPER=sccache cargo"
