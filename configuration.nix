@@ -9,7 +9,10 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
-
+  fileSystems."/etc/nixos" = {
+    device = "/home/poaclu/sources/nix-config";
+    options = [ "bind" ];
+  };
   # Use the systemd-boot EFI boot loader.
   boot.loader = {
   	systemd-boot.enable = false;
