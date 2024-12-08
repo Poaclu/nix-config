@@ -1,9 +1,0 @@
-[user]
-	name = Poaclu
-	email = 25772718+Poaclu@users.noreply.github.com
-[diff]
-	external = "difft"
-[core]
-	editor = nvim
-[help]
-    autocorrect = 20

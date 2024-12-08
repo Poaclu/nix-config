@@ -119,14 +119,6 @@
 	];
   };
 
-  home-manager = {
-    backupFileExtension = "backup";
-    extraSpecialArgs = { inherit inputs; };
-    users = {
-      "poaclu" = import ./home.nix;
-    };
-  };
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
