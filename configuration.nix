@@ -137,17 +137,20 @@
 	swaylock
     	vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
 	warp-terminal
-	waybar
+	(waybar.overrideAttrs (oldAttrs: {
+		mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+		})
+	)
     	wofi
     	wget
   ];
   programs = {
-    	firefox.enable = true;
-    	hyprland = {
-      		enable = true;
-      		xwayland.enable = true;
-    	};
-    	zsh.enable = true;
+    firefox.enable = true;
+    hyprland = {
+      enable = true;
+      xwayland.enable = true;
+    };
+    zsh.enable = true;
   }; 
 
   nixpkgs.config = {
