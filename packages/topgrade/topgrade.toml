@@ -146,7 +146,7 @@ notify_each_step = true
 
 # rpm_ostree = false
 
-nix_arguments = "--flake ./sources/nix-config#default"
+nix_arguments = "--flake ./sources/nix-config"
 
 nix_env_arguments = "--quiet --always --prebuilt-only"
 
