@@ -127,6 +127,7 @@
   environment.systemPackages = with pkgs; [
 	alacritty
 	dunst
+	libnotify
     	#firefox
 	git
 	hyprpaper
