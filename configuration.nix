@@ -43,16 +43,15 @@
 	};
   };
 
-  security.sudo = {
-  	enable = true;
-	extraConfig = ''
-	  Cmnd_Alias	REBOOT = /sbin/halt, /sbin/reboot, /sbin/poweroff
-	  %wheel ALL=NOPASSWD: REBOOT
-	  Defaults rootpw
-	'';
-	#extraRules = [
-		#{ groups = [ "wheel" ]; options= [ "NOPASSD" ]; commands = [ "shutdown" "reboot" ];} #Allow wheel group to use shutdown command without password
-	#];
+  security = {
+    sudo = {
+      enable = true;
+      extraConfig = ''
+        Cmnd_Alias	REBOOT = /sbin/halt, /sbin/reboot, /sbin/poweroff
+	%wheel ALL=NOPASSWD: REBOOT
+	Defaults rootpw
+      '';
+    rtkit.enable = true;
   };
 
   networking = {
@@ -77,6 +76,7 @@
 		alsa.enable =  true;
 		alsa.support32Bit = true;
 		pulse.enable = true;
+		jack.enable = true;
 	};
 	tailscale.enable = true;
 	xserver = {
@@ -87,6 +87,7 @@
 	};
   };
 
+  sound.enable = true;
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
   
