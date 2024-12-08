@@ -133,6 +133,7 @@
 	alacritty
     	#firefox
 	hyprpaper
+	home-manager
 	kitty
 	mlocate
     	neovim
