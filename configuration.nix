@@ -51,6 +51,7 @@
 	%wheel ALL=NOPASSWD: REBOOT
 	Defaults rootpw
       '';
+    };
     rtkit.enable = true;
   };
 
