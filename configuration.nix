@@ -127,6 +127,7 @@
   environment.systemPackages = with pkgs; [
 	alacritty
     	#firefox
+	git
 	hyprpaper
 	home-manager
 	kitty
