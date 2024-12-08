@@ -208,6 +208,13 @@
 		enable = true;
 		dates = "daily";
 		operation = "boot";
+		flake = inputs.self.outPath;
+		flags = [
+			"--flake ~/sources/nix-config/"
+			"--update-input"
+			"nixpkgs"
+			"-L" # print build logs
+		];
 		persistent = true;
 		rebootWindow = {
 			lower = "01:00";
