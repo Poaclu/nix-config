@@ -127,22 +127,27 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
 	alacritty
+	cliphist
 	dunst
 	libnotify
     	#firefox
 	git
+	grim
 	hyprpaper
 	home-manager
 	kitty
 	mlocate
     	neovim
 	networkmanagerapplet
+	rofi-wayland
+	slurp
 	swaylock
+	swww
     	vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
 	warp-terminal
 	(waybar.overrideAttrs (oldAttrs: {
-		mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-		})
+	  mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+	  })
 	)
     	wofi
     	wget
