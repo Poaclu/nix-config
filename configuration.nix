@@ -126,6 +126,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
 	alacritty
+	dunst
     	#firefox
 	git
 	hyprpaper
