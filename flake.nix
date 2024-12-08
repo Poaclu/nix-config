@@ -11,12 +11,28 @@
   };
 
   outputs = { self, nixpkgs, ... }@inputs: {
-    nixosConfigurations.default = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
-      modules = [
-        ./configuration.nix
-        inputs.home-manager.nixosModules.default
-      ];
+    nixosConfigurations = {
+      default = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./configuration.nix
+          inputs.home-manager.nixosModules.default
+        ];
+      };
+      dragonfly = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./configuration.nix
+          inputs.home-manager.nixosModules.default
+        ];
+      };
+      killi = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./configuration.nix
+          inputs.home-manager.nixosModules.default
+        ];
+      };
     };
   };
 }
