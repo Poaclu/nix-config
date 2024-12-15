@@ -150,6 +150,7 @@
 	  mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
 	  })
 	)
+	wlogout
     	wofi
     	wget
   ];
