@@ -6,9 +6,6 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
   fileSystems."/etc/nixos" = {
     device = "/home/poaclu/sources/nix-config";
     options = [ "bind" ];

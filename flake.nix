@@ -22,6 +22,7 @@
       dragonfly = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
+          ./hosts/dragonfly/hardware-configuration.nix
           ./configuration.nix
           inputs.home-manager.nixosModules.default
         ];
