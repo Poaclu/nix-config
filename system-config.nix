@@ -14,6 +14,7 @@
     grub = {
       enable = true;
       efiSupport = true;
+      efiInstallAsRemovable = true;
       devices = [ "nodev" ];
     };
   };
