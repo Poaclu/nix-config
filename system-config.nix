@@ -5,6 +5,9 @@
 { config, lib, pkgs, inputs, ... }:
 
 {
+  imports = [
+    inputs.home-manager.nixosModules.default
+  ];
   fileSystems."/etc/nixos" = {
     device = "/home/poaclu/sources/nix-config";
     options = [ "bind" ];

@@ -23,16 +23,12 @@
           ./hosts/dragonfly/hardware-configuration.nix
           ./desktop.nix
           ./system-config.nix
-          inputs.home-manager.nixosModules.default
         ];
       };
-      #killi = nixpkgs.lib.nixosSystem {
-      #  specialArgs = {inherit inputs;};
-      #  modules = [
-      #    disko.nixosModules.disko
-      #    inputs.home-manager.nixosModules.default
-      #    ./disko-config.nix
-      #    ./configuration.nix
+      killi = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./hosts/killi/configuration.nix
       #  ];
       #};
     };
