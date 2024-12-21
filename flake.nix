@@ -28,8 +28,10 @@
         specialArgs = {inherit inputs;};
         modules = [
           ./hosts/killi/configuration.nix
-      #  ];
-      #};
+          ./desktop.nix
+          ./system-config.nix
+        ];
+      };
     };
   };
 }

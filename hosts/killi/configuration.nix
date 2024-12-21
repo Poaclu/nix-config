@@ -2,7 +2,7 @@
 
 {
   imports = [
-    disko.nixosModules.diko
+    inputs.disko.nixosModules.default
     ./disko-config.nix
   ];
   networking.hostName = "killi";
