@@ -19,6 +19,11 @@
     };
   };
 
+  fileSystems."/etc/nixos" = {
+    device = "/home/poaclu/sources/nix-config";
+    options = [ "bind" ];
+  };
+
   swapDevices = [{
     device = "/swapfile";
     size = 8 * 1024;
