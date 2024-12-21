@@ -20,7 +20,6 @@
         specialArgs = { inherit inputs; };
         modules = [
           ./hosts/dragonfly/configuration.nix
-          ./hosts/dragonfly/hardware-configuration.nix
           ./desktop.nix
           ./system-config.nix
         ];
