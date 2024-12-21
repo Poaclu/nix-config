@@ -1,5 +1,5 @@
-{config, lib, pkgs, inputs, ...}
+{ config, lib, pkgs, inputs, ... }:
 
 {
-  networking.hostName = "dragonfly"
+  networking.hostName = "dragonfly";
 }
