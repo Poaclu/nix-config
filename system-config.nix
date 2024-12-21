@@ -8,11 +8,6 @@
   imports = [
     inputs.home-manager.nixosModules.default
   ];
-  fileSystems."/etc/nixos" = {
-    device = "/home/poaclu/sources/nix-config";
-    options = [ "bind" ];
-  };
-  # Use the systemd-boot EFI boot loader.
   boot.loader = {
     systemd-boot.enable = false;
     efi.canTouchEfiVariables = true;
