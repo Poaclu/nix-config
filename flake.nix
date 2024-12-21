@@ -16,30 +16,25 @@
 
   outputs = { self, nixpkgs, disko, ... }@inputs: {
     nixosConfigurations = {
-      default = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
-        modules = [
-          ./configuration.nix
-          inputs.home-manager.nixosModules.default
-        ];
-      };
       dragonfly = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
+        specialArgs = { inherit inputs; };
         modules = [
+          ./hosts/dragonfly/configuration.nix
           ./hosts/dragonfly/hardware-configuration.nix
-          ./configuration.nix
+          ./desktop.nix
+          ./system-config.nix
           inputs.home-manager.nixosModules.default
         ];
       };
-      killi = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
-        modules = [
-          disko.nixosModules.disko
-          inputs.home-manager.nixosModules.default
-          ./disko-config.nix
-          ./configuration.nix
-        ];
-      };
+      #killi = nixpkgs.lib.nixosSystem {
+      #  specialArgs = {inherit inputs;};
+      #  modules = [
+      #    disko.nixosModules.disko
+      #    inputs.home-manager.nixosModules.default
+      #    ./disko-config.nix
+      #    ./configuration.nix
+      #  ];
+      #};
     };
   };
 }
