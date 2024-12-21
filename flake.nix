@@ -30,6 +30,7 @@
           ./hosts/killi/configuration.nix
           ./desktop.nix
           ./system-config.nix
+	  ./gaming.nix
         ];
       };
     };
