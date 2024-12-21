@@ -70,13 +70,14 @@
     description = "Poaclu";
     isNormalUser = true;
     shell = pkgs.zsh;
+    initialPassword = "12345";
     extraGroups = [ 
       "wheel"
       "networkmanager"
       "mlocate"
     ];
   };
-
+  users.extraUsers.root.initialPassword = "678910";
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
