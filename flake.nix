@@ -31,6 +31,7 @@
           ./desktop.nix
           ./system-config.nix
 	  ./gaming.nix
+	  ./security.nix
         ];
       };
     };
