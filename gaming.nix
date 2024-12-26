@@ -8,6 +8,9 @@
     steam
     steam-run
   ];
+  hardware = {
+	xone.enable = true;
+  };
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (builtins.parseDrvName pkg.name).name ["steam"];
   programs = {
     steam = {
