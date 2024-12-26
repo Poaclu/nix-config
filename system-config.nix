@@ -5,9 +5,6 @@
 { config, lib, pkgs, inputs, ... }:
 
 {
-  imports = [
-    inputs.home-manager.nixosModules.default
-  ];
   boot.loader = {
     systemd-boot.enable = false;
     #efi.canTouchEfiVariables = true;
