@@ -6,6 +6,7 @@
     ./grub.nix
     ./security/anti-virus.nix
     ./security/sudo.nix
+    ./swap.nix
   ];
 
   anti-virus.enable = 
@@ -17,4 +18,5 @@
   	enable = lib.mkDefault true;
 	rootpw = lib.mkDefault true;
   };
+  swap.enable = lib.mkDefault true;
 }

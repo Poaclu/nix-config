@@ -10,11 +10,6 @@
     options = [ "bind" ];
   };
 
-  swapDevices = [{
-    device = "/swapfile";
-    size = 8 * 1024;
-  }];
-
   nix = {
     settings.experimental-features = [ "nix-command" "flakes" ];
     gc = {
