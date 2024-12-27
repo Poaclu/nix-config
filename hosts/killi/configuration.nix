@@ -6,5 +6,7 @@
     ./disko-config.nix
     ./hardware-configuration.nix
   ];
+  desktop.enable = true;
+  gaming.enable = true;
   networking.hostName = "killi";
 }

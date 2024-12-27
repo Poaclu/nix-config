@@ -1,6 +1,8 @@
 { pkgs, lib, ... }: {
 
   imports = [
+    ./desktop.nix
+    ./gaming.nix
     ./security/anti-virus.nix
   ];
 
