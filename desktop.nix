@@ -54,7 +54,6 @@
     networkmanagerapplet
     rofi-wayland
     slurp
-    spotify
     swaylock
     swww
     waybar
