@@ -23,7 +23,6 @@
         specialArgs = {inherit inputs;};
         modules = [
           ./hosts/killi/configuration.nix
-          ./system-config.nix
 	  ./modules
         ];
       };
