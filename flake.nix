@@ -20,10 +20,14 @@
         ];
       };
       killi = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
+        specialArgs = {inherit inputs nixpkgs;};
         modules = [
           ./hosts/killi/configuration.nix
-	  ./modules
+	  (import ./modules { 
+	    inherit inputs; 
+	    pkgs = nixpkgs;
+	    lib = nixpkgs.lib;
+	  })
         ];
       };
     };

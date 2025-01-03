@@ -5,9 +5,47 @@
 { config, lib, pkgs, inputs, ... }:
 
 {
+  boot.loader = {
+    systemd-boot.enable = false;
+    #efi.canTouchEfiVariables = true;
+    grub = {
+      enable = true;
+      efiSupport = true;
+      efiInstallAsRemovable = true;
+      devices = [ "nodev" ];
+    };
+  };
+
   fileSystems."/etc/nixos" = {
     device = "/home/poaclu/sources/nix-config";
     options = [ "bind" ];
+  };
+
+  swapDevices = [{
+    device = "/swapfile";
+    size = 8 * 1024;
+  }];
+
+  nix = {
+    settings.experimental-features = [ "nix-command" "flakes" ];
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      persistent = true;
+      options = "--delete-older-than 30d";
+    };
+  };
+
+  security = {
+    sudo = {
+      enable = true;
+      extraConfig = ''
+        Cmnd_Alias	REBOOT = /sbin/halt, /sbin/reboot, /sbin/poweroff
+	%wheel ALL=NOPASSWD: REBOOT
+	Defaults rootpw
+      '';
+    };
+    rtkit.enable = true;
   };
 
   networking = {
@@ -99,5 +137,25 @@
   # and migrated your data accordingly.
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
+  system = {
+    stateVersion = "24.11"; # Did you read the comment?
+    autoUpgrade = {
+      enable = true;
+      dates = "daily";
+      operation = "boot";
+      flake = inputs.self.outPath;
+      flags = [
+        "--flake ~/sources/nix-config/"
+	"--update-input"
+	"nixpkgs"
+	"-L" # print build logs
+      ];
+      persistent = true;
+      rebootWindow = {
+        lower = "01:00";
+	upper = "05:00";
+      };
+    };
+  };
 
 }

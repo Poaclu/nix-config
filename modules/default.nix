@@ -4,6 +4,7 @@
     ./desktop.nix
     ./gaming.nix
     ./grub.nix
+    ./nix.nix
     ./security/anti-virus.nix
     ./security/sudo.nix
     ./swap.nix
