@@ -2,8 +2,12 @@
 
 {
 	options = {
-		grub.enable
-			= lib.mkEnableOption "Enable Grub config";
+		grub.enable = lib.mkOption {
+				description = "Enable Grub config";
+				type = lib.types.bool;
+				default = true;
+				example = false;
+		};
 	
 	};
 	

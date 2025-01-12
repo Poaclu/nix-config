@@ -2,8 +2,12 @@
 
 {
 	options = {
-		anti-virus.enable
-			= lib.mkEnableOption "Enable Security feature : AntiVirus";
+		anti-virus.enable = lib.mkOption {
+				description = "Enable Security feature : AntiVirus";
+				type = lib.types.bool;
+				default = true;
+				example = false;
+		};
 	
 	};
 	

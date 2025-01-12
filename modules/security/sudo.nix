@@ -4,8 +4,18 @@
 
 	options = {
 		sudo = {
-			enable = lib.mkEnableOption "Enable Security feature : Sudo";
-			rootpw = lib.mkEnableOption "Enable root password for sudo";
+			enable = lib.mkOption {
+				description = "Enable Security feature : Sudo";
+				type = lib.types.bool;
+				default = true;
+				example = false;
+			};
+			rootpw = lib.mkOption {
+				description = "Enable root password for sudo";
+				type = lib.types.bool;
+				default = true;
+				example = false;
+			};
 		};
 	};
 	config = lib.mkIf config.sudo.enable {

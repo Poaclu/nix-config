@@ -3,7 +3,12 @@
 {
 	options = {
 		swap = {
-			enable = lib.mkEnableOption "Enable swap, only swapfile";
+			enable = lib.mkOption {
+				description = "Enable swap, only swapfile";
+				type = lib.types.bool;
+				default = true;
+				example = false;
+			};
 			size = lib.mkOption {
 				type = lib.types.int;
 				default = 8;
