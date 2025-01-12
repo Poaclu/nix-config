@@ -12,15 +12,15 @@ in
 				default = true;
 				example = false;
 			};
-			gc = lib.mkEnableOption "Enable Nix Garbage collector automatic gestion";
+			gc = lib.mkOption {
+				default = true;
+				type = lib.types.bool;
+				description = "Enable Nix grabage colector";
+			};
 			upgrade = lib.mkOption {
 				default = false;
 				type = lib.types.bool;
 				description = "Enable Nix auto upgrade";
-			};
-			flakes = lib.mkEnableOption {
-				default = true;
-				description = "Enable flakes in NixOS";
 			};
 			version = lib.mkOption {
 				type = lib.types.str;
@@ -31,17 +31,7 @@ in
 	};
 	config = lib.mkIf cN.enable {
 		nix = {
-			settings = if cN.flakes.enable then {
-				experimental-features = [ "nix-command" "flakes" ];
-			} else {
-				{}; # Return empty set
-			};
-			gc = lib.mkIf cN.gc.enable {
-				automatic = true;
-				dates = "weekly";
-				persistent = true;
-				options = "--delete-older-than 30d";
-			};
+			settings.experimental-features = [ "nix-command" "flakes" ];
 		};
 		system = lib.mkIf cN.upgrade {
 			stateVersion = cN.version;
