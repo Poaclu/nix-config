@@ -1,1 +1,2 @@
 - [ ] Finish putting NixOS in a seperate module folder (submodule ?)
+	- [ ] Finish user module

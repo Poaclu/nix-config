@@ -8,5 +8,6 @@
     ./security/anti-virus.nix
     ./security/sudo.nix
     ./swap.nix
+    ./user.nix
   ];
 }
