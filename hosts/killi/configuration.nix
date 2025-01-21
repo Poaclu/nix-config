@@ -9,12 +9,7 @@
     ./system-config.nix
   ];
 
-  customNix = {
-  	enable = true;
-	upgrade = true;
-  };
   desktop.enable = true;
   gaming.enable = true;
   networking.hostName = "killi";
-
 }
