@@ -17,11 +17,6 @@ in
 				type = lib.types.bool;
 				description = "Enable Nix grabage colector";
 			};
-			upgrade = lib.mkOption {
-				default = false;
-				type = lib.types.bool;
-				description = "Enable Nix auto upgrade";
-			};
 			version = lib.mkOption {
 				type = lib.types.str;
 				default = "24.11";
@@ -33,25 +28,6 @@ in
 		nix = {
 			settings.experimental-features = [ "nix-command" "flakes" ];
 		};
-		system = lib.mkIf cN.upgrade {
-			stateVersion = cN.version;
-			autoUpgrade = {
-				enable = true;
-				dates = "daily";
-				operation = "boot";
-				flake = inputs.self.outPath;
-				flags = [
-					"--flake ~/sources/nix-config/"
-					"--update-input"
-					"nixpkgs"
-					"-L" # print build logs
-				];
-				persistent = true;
-				rebootWindow = {
-					lower = "01:00";
-					upper = "05:00";
-				};
-			};
-		};
+		system.stateVersion = cN.version;
 	};
 }
