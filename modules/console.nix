@@ -2,7 +2,7 @@
 
 {
   options = {
-    console = {
+    console_fr = {
       enable = lib.mkOption {
 	description = "Enable french console";
 	type = lib.types.bool;
@@ -12,9 +12,9 @@
     };
   };
 
-  config = lib.mkIf config.console.enable {
+  config = lib.mkIf config.console_fr.enable {
     i18n.defaultLocale = "fr_FR.UTF-8";
-    console.keymap = "fr";
+    console.keyMap = "fr";
   };
 }
 
