@@ -10,6 +10,4 @@
   console = {
     keyMap = "fr";
   };
-
-  users.extraUsers.root.initialPassword = "678910";
 }
