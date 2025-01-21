@@ -1,9 +1,9 @@
 { pkgs, lib, ... }: {
 
   imports = [
+    ./boot.nix
     ./desktop.nix
     ./gaming.nix
-    ./grub.nix
     ./nix/default.nix
     ./security/anti-virus.nix
     ./security/sudo.nix

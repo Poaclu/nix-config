@@ -12,15 +12,18 @@
 	};
 	
 	config = lib.mkIf config.grub.enable {
-		boot.loader = {
-			systemd-boot.enable = false;
-			grub = {
-				enable = true;
-				efiSupport = true;
-				efiInstallAsRemovable = true;
-				devices = [ "nodev"];
+		boot = {
+			loader = {
+				systemd-boot.enable = false;
+				grub = {
+					enable = true;
+					efiSupport = true;
+					efiInstallAsRemovable = true;
+					devices = [ "nodev"];
+				};
 			};
-  		};
+			plymouth.enable = true;
+		};
 	};
 }
 
