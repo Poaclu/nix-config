@@ -2,6 +2,7 @@
 
   imports = [
     ./boot.nix
+    ./console.nix
     ./desktop.nix
     ./gaming.nix
     ./nix/default.nix
