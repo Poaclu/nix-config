@@ -6,8 +6,4 @@
     options = [ "bind" ];
   };
 
-  i18n.defaultLocale = "fr_FR.UTF-8";
-  console = {
-    keyMap = "fr";
-  };
 }
