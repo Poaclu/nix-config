@@ -55,7 +55,6 @@
 				cliphist
 				dunst
 				libnotify
-				#firefox
 				grim
 				hyprpaper
 				kitty
