@@ -2,20 +2,24 @@
 
 {
 	options = {
-		gaming.enable
-			= lib.mkEnableOption "Enable Gaming apps and features";
+		gaming.enable = lib.mkOption {
+				description = "Enable Gaming apps and features";
+				type = lib.types.bool;
+				default = true;
+				example = false;
+		};
 	};
 
 	config = lib.mkIf config.gaming.enable {
 
 		environment.systemPackages = with pkgs; [
 			bottles
-				heroic
-				lutris
-				mangohud
-				protonup-qt
-				steam
-				steam-run
+			heroic
+			lutris
+			mangohud
+			protonup-qt
+			steam
+			steam-run
 		];
 		hardware = {
 			graphics = {
