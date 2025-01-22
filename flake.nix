@@ -14,7 +14,7 @@
       dragonfly = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
         modules = [
-          ./hosts/killi/configuration.nix
+          ./hosts/drangonfly/configuration.nix
 	  (import ./modules { 
 	    inherit inputs; 
 	    pkgs = nixpkgs;
