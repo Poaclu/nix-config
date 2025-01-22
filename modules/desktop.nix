@@ -3,8 +3,10 @@
 {
 
 	options = {
-		desktop.enable
-			= lib.mkEnableOption "Enable Desktop environment";
+		desktop = {
+			enable = lib.mkEnableOption "Enable Desktop environment";
+			xdg = lib.mkEnableOption "Enable XDG environment";
+		};
 	};
 
 	config = lib.mkIf config.desktop.enable {
@@ -30,12 +32,12 @@
 			};
 		};
 
-		xdg.portal = {
+		xdg.portal = lib.mkIf config.desktop.xdg {
 			enable = true;
 			extraPortals = with pkgs; [
 				xdg-desktop-portal-wlr
-					xdg-desktop-portal-kde
-					xdg-desktop-portal-gtk
+				xdg-desktop-portal-kde
+				xdg-desktop-portal-gtk
 			];
 			wlr = {
 				enable = true;
@@ -52,20 +54,20 @@
 
 		environment.systemPackages = with pkgs; [
 			alacritty
-				cliphist
-				dunst
-				libnotify
-				grim
-				hyprpaper
-				kitty
-				networkmanagerapplet
-				rofi-wayland
-				slurp
-				swaylock
-				swww
-				waybar
-				wlogout
-				wofi
+			cliphist
+			dunst
+			libnotify
+			grim
+			hyprpaper
+			kitty
+			networkmanagerapplet
+			rofi-wayland
+			slurp
+			swaylock
+			swww
+			waybar
+			wlogout
+			wofi
 		];
 
 		programs = {
@@ -75,6 +77,5 @@
 				xwayland.enable = true;
 			};
 		};
-
 	};
 }
