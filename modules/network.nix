@@ -13,6 +13,9 @@
     };
   };
   config = lib.mkIf config.network.enable {
+    environment.systemPackages = [
+      pkgs.networkmanagerapplet
+    ];
     networking = {
       networkmanager.enable = true;  # Easiest to use and most distros use this by default.
       enableIPv6 = false;
