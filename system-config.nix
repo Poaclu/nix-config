@@ -5,15 +5,18 @@
 { config, lib, pkgs, inputs, ... }:
 
 {
-  boot.loader = {
-    systemd-boot.enable = false;
-    #efi.canTouchEfiVariables = true;
-    grub = {
-      enable = true;
-      efiSupport = true;
-      efiInstallAsRemovable = true;
-      devices = [ "nodev" ];
+  boot = {
+    loader = {
+      systemd-boot.enable = false;
+      #efi.canTouchEfiVariables = true;
+      grub = {
+	enable = true;
+	efiSupport = true;
+	efiInstallAsRemovable = true;
+	devices = [ "nodev" ];
+      };
     };
+    plymouth.enable = true;
   };
 
   fileSystems."/etc/nixos" = {

@@ -1,0 +1,3 @@
+- [x] Finish putting NixOS in a seperate module folder (submodule ?)
+	- [x] Finish user module
+- [ ] Install Disko on Dragonfly
