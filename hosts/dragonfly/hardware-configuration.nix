@@ -13,13 +13,13 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/ea26ebb7-385b-4859-8a70-b40ea796f55d";
+  fileSystems."/" = lib.mkForce { 
+      device = "/dev/disk/by-uuid/ea26ebb7-385b-4859-8a70-b40ea796f55d";
       fsType = "btrfs";
     };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/2714-FAEB";
+  fileSystems."/boot" = lib.mkForce { 
+      device = "/dev/disk/by-uuid/2714-FAEB";
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };
