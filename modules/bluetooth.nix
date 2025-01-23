@@ -24,7 +24,6 @@
       settings = {
         General = {
           Experimental = true;
-          };
         };
       };
     };
