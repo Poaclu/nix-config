@@ -9,30 +9,37 @@
     };
   };
 
-  outputs = { self, nixpkgs, disko, ... }@inputs: {
-    nixosConfigurations = {
-      dragonfly = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./hosts/dragonfly/configuration.nix
-	  (import ./modules { 
-	    inherit inputs; 
-	    pkgs = nixpkgs;
-	    lib = nixpkgs.lib;
-	  })
-        ];
-      };
-      killi = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs nixpkgs;};
-        modules = [
-          ./hosts/killi/configuration.nix
-	  (import ./modules { 
-	    inherit inputs; 
-	    pkgs = nixpkgs;
-	    lib = nixpkgs.lib;
-	  })
-        ];
+  outputs =
+    {
+      self,
+      nixpkgs,
+      disko,
+      ...
+    }@inputs:
+    {
+      nixosConfigurations = {
+        dragonfly = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./hosts/dragonfly/configuration.nix
+            (import ./modules {
+              inherit inputs;
+              pkgs = nixpkgs;
+              lib = nixpkgs.lib;
+            })
+          ];
+        };
+        killi = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs nixpkgs; };
+          modules = [
+            ./hosts/killi/configuration.nix
+            (import ./modules {
+              inherit inputs;
+              pkgs = nixpkgs;
+              lib = nixpkgs.lib;
+            })
+          ];
+        };
       };
     };
-  };
 }
