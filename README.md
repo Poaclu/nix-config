@@ -9,6 +9,6 @@ what I do to deploy them (not tested) :
 - other : need to install Topgrade first : `topgrade --config ~/sources/package/topgrade/topgrade.toml`
 
 # TODO
-![[TODO]]
+![[TODO.md]]
 
 See also my [home-manager config](https://github.com/Poaclu/home-manager)
