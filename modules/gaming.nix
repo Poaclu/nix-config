@@ -23,6 +23,7 @@
       lutris
       mangohud
       protonup-qt
+      protonplus
       steam
       steam-run
     ];
