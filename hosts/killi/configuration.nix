@@ -15,6 +15,7 @@
     ./system-config.nix
   ];
 
+  bluetooth.enable = true;
   desktop.enable = true;
   gaming.enable = true;
   networking.hostName = "killi";
