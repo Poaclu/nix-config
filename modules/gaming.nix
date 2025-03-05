@@ -20,6 +20,7 @@
     environment.systemPackages = with pkgs; [
       bottles
       heroic
+      gamemode
       lutris
       mangohud
       protonup-qt
