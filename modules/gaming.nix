@@ -25,6 +25,7 @@
       mangohud
       protonup-qt
       protonplus
+      r2modman
       steam
       steam-run
     ];
