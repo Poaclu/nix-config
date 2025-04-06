@@ -5,7 +5,7 @@
     ./bluetooth.nix
     ./boot.nix
     ./console.nix
-    ./desktop.nix
+    ./desktop/default.nix
     ./gaming.nix
     ./nix/default.nix
     ./network.nix

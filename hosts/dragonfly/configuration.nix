@@ -15,7 +15,10 @@
   ];
 
   anti-virus.enable = false;
-  desktop.enable = true;
+  desktop = {
+    enable = true;
+    xdg = true;
+  };
   bluetooth.enable = true;
   gaming.enable = false;
   networking.hostName = "dragonfly";
