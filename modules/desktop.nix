@@ -33,6 +33,7 @@
       xserver = {
         enable = true;
         displayManager.gdm.enable = true;
+        displayManager.sessionPackages = [ pkgs.hyprland ];
         xkb.layout = "fr";
       };
     };
