@@ -22,14 +22,14 @@
           specialArgs = { inherit inputs; };
           modules = [
             ./hosts/dragonfly/configuration.nix
-            (import ./modules { inherit inputs; })
+            ./modules
           ];
         };
         killi = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs nixpkgs; };
           modules = [
             ./hosts/killi/configuration.nix
-            (import ./modules { inherit inputs; })
+            ./modules
           ];
         };
       };
