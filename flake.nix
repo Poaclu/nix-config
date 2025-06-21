@@ -23,9 +23,9 @@
           modules = [
             ./hosts/dragonfly/configuration.nix
             (import ./modules {
-              inherit inputs;
-              pkgs = nixpkgs;
-              lib = nixpkgs.lib;
+                inherit inputs;
+                pkgs = nixpkgs;
+                lib = nixpkgs.lib;
             })
           ];
         };

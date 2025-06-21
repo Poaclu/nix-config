@@ -23,6 +23,7 @@
 
     services = {
       picom.enable = true;
+      displayManager.gdm.enable = true;
       pipewire = {
         enable = true;
         alsa.enable = true;
@@ -32,7 +33,6 @@
       };
       xserver = {
         enable = true;
-        displayManager.gdm.enable = true;
         xkb.layout = "fr";
       };
     };
