@@ -16,7 +16,10 @@
   ];
 
   bluetooth.enable = true;
-  desktop.enable = true;
+  desktop = {
+    enable = true;
+    xdg = true;
+  };
   gaming.enable = true;
   networking.hostName = "killi";
 }
