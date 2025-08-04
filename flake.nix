@@ -40,6 +40,17 @@
             })
           ];
         };
+        kermel = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs nixpkgs; };
+          modules = [
+            ./hosts/kermel/configuration.nix
+            (import ./modules {
+              inherit inputs;
+              pkgs = nixpkgs;
+              lib = nixpkgs.lib;
+            })
+          ];
+        };
       };
     };
 }
