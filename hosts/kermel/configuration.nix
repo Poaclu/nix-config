@@ -21,5 +21,5 @@
     xdg = true;
   };
   gaming.enable = true;
-  networking.hostName = "killi";
+  networking.hostName = "kermel";
 }

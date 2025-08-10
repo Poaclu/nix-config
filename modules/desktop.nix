@@ -23,6 +23,7 @@
 
     services = {
       picom.enable = true;
+      displayManager.gdm.enable = true;
       pipewire = {
         enable = true;
         alsa.enable = true;
@@ -32,7 +33,6 @@
       };
       xserver = {
         enable = true;
-        displayManager.gdm.enable = true;
         xkb.layout = "fr";
       };
     };
@@ -41,7 +41,7 @@
       enable = true;
       extraPortals = with pkgs; [
         xdg-desktop-portal-wlr
-        xdg-desktop-portal-kde
+        kdePackages.xdg-desktop-portal-kde
         xdg-desktop-portal-gtk
       ];
       wlr = {
