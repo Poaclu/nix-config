@@ -7,7 +7,6 @@
 }:
 
 {
-
   imports = [
     inputs.disko.nixosModules.default
     ./disko-config.nix
@@ -16,12 +15,14 @@
   ];
 
   bluetooth.enable = true;
+  boot = {
+    grub.enable = false;
+    sysdb.enable = true;
+  };
   desktop = {
     enable = true;
     xdg = true;
   };
   gaming.enable = true;
-  grub.enable = false;
-  sysdb.enable = true;
   networking.hostName = "kermel";
 }
