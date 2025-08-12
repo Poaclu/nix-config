@@ -17,7 +17,7 @@
   bluetooth.enable = true;
   boot = {
     grub.enable = false;
-    sysdb.enable = true;
+    lanza.enable = true;
   };
   desktop = {
     enable = true;

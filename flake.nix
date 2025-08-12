@@ -7,6 +7,10 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v0.4.2";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -14,6 +18,7 @@
       self,
       nixpkgs,
       disko,
+      lanzaboote,
       ...
     }@inputs:
     {
@@ -21,6 +26,7 @@
         killi = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs nixpkgs; };
           modules = [
+            lanzaboote.nixosModules.lanzaboote
             ./hosts/killi/configuration.nix
             (import ./modules {
               inherit inputs;
@@ -32,6 +38,7 @@
         kermel = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs nixpkgs; };
           modules = [
+            lanzaboote.nixosModules.lanzaboote
             ./hosts/kermel/configuration.nix
             (import ./modules {
               inherit inputs;

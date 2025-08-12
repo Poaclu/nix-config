@@ -7,6 +7,7 @@
     ./console.nix
     ./desktop.nix
     ./gaming.nix
+    ./lanzaboot.nix
     ./nix/default.nix
     ./network.nix
     ./security/anti-virus.nix
