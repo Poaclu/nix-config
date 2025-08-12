@@ -21,5 +21,7 @@
     xdg = true;
   };
   gaming.enable = true;
+  grub.enable = false;
+  sysdb.enable = true;
   networking.hostName = "kermel";
 }
