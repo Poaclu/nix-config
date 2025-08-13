@@ -23,6 +23,10 @@
   config = lib.mkIf config.boot.lanza.enable {
     boot = {
       loader = {
+        efi = {
+          canTouchEfiVariables = true;
+        };
+        grub.enable = lib.mkForce false;
         systemd-boot = {
           enable = lib.mkForce false;
           consoleMode = "0";
@@ -31,7 +35,7 @@
       };
       lanzaboote = {
         enable = true;
-        pkiBundle = "/var/lib/sbctl";
+        pkiBundle = "/etc/secureboot/";
       };
     };
     environment.systemPackages = with pkgs; [

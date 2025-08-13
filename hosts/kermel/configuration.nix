@@ -1,7 +1,5 @@
 {
   config,
-  lib,
-  pkgs,
   inputs,
   ...
 }:
@@ -14,7 +12,6 @@
     ./system-config.nix
   ];
 
-  bluetooth.enable = true;
   boot = {
     grub.enable = false;
     lanza.enable = true;

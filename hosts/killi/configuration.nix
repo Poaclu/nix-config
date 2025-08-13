@@ -1,7 +1,5 @@
 {
   config,
-  lib,
-  pkgs,
   inputs,
   ...
 }:
@@ -16,6 +14,10 @@
   ];
 
   bluetooth.enable = true;
+  boot = {
+    grub.enable = false;
+    lanza.enable = true;
+  };
   desktop = {
     enable = true;
     xdg = true;
