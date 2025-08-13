@@ -16,6 +16,15 @@
           default = false;
           example = true;
         };
+        pkiBundle = lib.mkOption {
+          default = "/etc/secureboot/";
+          type = lib.types.str;
+          description = ''
+            the path to a directory where your Secure Boot key pair and certificates are stored.
+            Ex:
+            /var/lib/sbctl/
+            /etc/secureboot/'';
+        };
       };
     };
   };
@@ -35,7 +44,7 @@
       };
       lanzaboote = {
         enable = true;
-        pkiBundle = "/etc/secureboot/";
+        pkiBundle = config.boot.lanza.pkiBundle;
       };
     };
     environment.systemPackages = with pkgs; [

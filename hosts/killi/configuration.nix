@@ -16,7 +16,10 @@
   bluetooth.enable = true;
   boot = {
     grub.enable = false;
-    lanza.enable = true;
+    lanza = {
+      enable = true;
+      pkiBundle = "/etc/secureboot/";
+    };
   };
   desktop = {
     enable = true;

@@ -14,7 +14,10 @@
 
   boot = {
     grub.enable = false;
-    lanza.enable = true;
+    lanza = {
+      enable = true;
+      pkiBundle = "/var/lib/sbctl/";
+    };
   };
   desktop = {
     enable = true;
