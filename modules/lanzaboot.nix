@@ -22,7 +22,13 @@
 
   config = lib.mkIf config.boot.lanza.enable {
     boot = {
-      loader.systemd-boot.enable = lib.mkForce false;
+      loader = {
+        systemd-boot = {
+          enable = lib.mkForce false;
+          consoleMode = "0";
+        };
+        timeout = 0;
+      };
       lanzaboote = {
         enable = true;
         pkiBundle = "/var/lib/sbctl";
