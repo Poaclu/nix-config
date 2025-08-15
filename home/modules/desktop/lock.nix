@@ -1,20 +1,6 @@
 { config, pkgs, lib, ... }:
-let
-  cfg = config.poaclu.home.desktop;
-in 
 { 
-  options = {
-    poaclu.home.desktop = {
-      lock = lib.mkOption {
-        description = "Enable Desktop config for user config";
-        type = lib.types.bool;
-        default = true;
-        example = false;
-      };
-    };
-  };  
-  config = lib.mkIf cfg.enable {
-    programs = lib.mkIf cfg.lock {
+    programs = {
       swaylock = {
         enable = true;
         settings = {
@@ -91,5 +77,4 @@ in
         ];
       };
     };
-  };
 }

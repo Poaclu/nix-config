@@ -1,9 +1,5 @@
 { config, pkgs, lib, ... }:
-let
-  cfg = config.poaclu.home.desktop;
-in 
 {
-config = lib.mkIf cfg.enable {
 	programs.waybar = {
 		enable = true;
 		settings = {
@@ -151,5 +147,4 @@ config = lib.mkIf cfg.enable {
 		"waybar/mediaplayer.py".source = ./config/mediaplayer.py;
 		"waybar/power_menu.xml".source = ./config/power_menu.xml;
 	};
-};
 }
