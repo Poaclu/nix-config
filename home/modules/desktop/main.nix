@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, libs, inputs, ... }:
 { 
     home = {
       packages = with pkgs; [
@@ -36,7 +36,6 @@
           dynamic_background_opacity = "yes";
         };
       };
-      zen-browser.enable = true;
     };
     services.flameshot = {
       enable = true;

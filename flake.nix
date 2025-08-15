@@ -29,7 +29,6 @@
       disko,
       lanzaboote,
       hyprland,
-      zen-browser,
       home-manager,
       ...
     }@inputs:
@@ -59,7 +58,6 @@
                 ./home/modules/desktop
                 ./home/modules/main.nix
                 ./home/modules/user.nix
-                zen-browser.homeModules.default
               ];
               _module.args.inputs = inputs;
               };
@@ -86,7 +84,6 @@
                 ./home/modules/desktop
                 ./home/modules/main.nix
                 ./home/modules/user.nix
-                zen-browser.homeModules.default
               ];
               _module.args.inputs = inputs;
               };

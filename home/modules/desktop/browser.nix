@@ -1,6 +1,6 @@
 { config, pkgs, libs, inputs, ... }:
 { 
     home.packages = [
-      inputs.zen-browser.homeModules.default
+      inputs.zen-browser.packages.${pkgs.system}.default
     ];
-};
+}
