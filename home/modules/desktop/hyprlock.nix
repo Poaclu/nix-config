@@ -1,9 +1,5 @@
 { config, inputs, pkgs, lib, ... }:
-let
-  cfg = config.poaclu.home.desktop;
-in
 {
-config = lib.mkIf cfg.enable {
 	programs.hyprlock = {
 		enable = true;
 		settings = {
@@ -74,5 +70,4 @@ config = lib.mkIf cfg.enable {
 
 		};
 	};
-};
 }
