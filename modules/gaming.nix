@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  inputs,
   ...
 }:
 
@@ -15,19 +16,28 @@
     };
   };
 
+
+    imports = [
+      inputs.play.nixosModules.play
+    ];
   config = lib.mkIf config.gaming.enable {
+
+    play = {
+      amd.enable = true;
+      steam.enable = true;
+      lutris.enable = true;
+      gamemode.enable = true;
+      ananicy.enable = true;
+    };
 
     environment.systemPackages = with pkgs; [
       bottles
       heroic
-      gamemode
       lutris
       mangohud
       protonup-qt
       protonplus
       r2modman
-      steam
-      steam-run
     ];
     hardware = {
       graphics = {
@@ -35,20 +45,6 @@
         enable32Bit = true;
       };
       xone.enable = true;
-    };
-    nixpkgs.config.allowUnfreePredicate =
-      pkg: builtins.elem (builtins.parseDrvName pkg.name).name [ "steam" ];
-    programs = {
-      steam = {
-        enable = true;
-        extraCompatPackages = with pkgs; [proton-ge-bin];
-        gamescopeSession.enable = true;
-        remotePlay.openFirewall = true;
-      };
-      gamemode = {
-        enable = true;
-        enableRenice = true;
-      };
     };
     services.xserver.videoDrivers = [ "amdgpu" ];
   };
