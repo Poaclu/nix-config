@@ -55,8 +55,10 @@
               home-manager.useUserPackages = true;
               home-manager.users.poaclu = { ... }: {
               imports = [
-                ./hosts/killi/home.nix
-                ./home/modules/default.nix
+                ./home/modules/shell
+                ./home/modules/desktop
+                ./home/modules/main.nix
+                ./home/modules/user.nix
                 zen-browser.homeModules.default
               ];
               _module.args.inputs = inputs;
@@ -80,8 +82,10 @@
               home-manager.useUserPackages = true;
               home-manager.users.poaclu = { ... }: {
               imports = [
-                ./hosts/kermel/home.nix
-                ./home/modules/default.nix
+                ./home/modules/shell
+                ./home/modules/desktop
+                ./home/modules/main.nix
+                ./home/modules/user.nix
                 zen-browser.homeModules.default
               ];
               _module.args.inputs = inputs;
@@ -94,7 +98,10 @@
         poaclu = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [
-            ./home/modules/default.nix
+            ./home/modules/shell
+            ./home/modules/main.nix
+            ./home/modules/user.nix
+            ./home/modules/nix.nix
           ];
         };
       };
