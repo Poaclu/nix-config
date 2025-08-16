@@ -7,7 +7,10 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    chaotic = {
+      url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.4.2";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -19,6 +22,10 @@
     };
     home-manager = {
       url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nur = {
+      url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     play = {
@@ -35,11 +42,15 @@
       lanzaboote,
       hyprland,
       home-manager,
+      nur,
       ...
     }@inputs:
     let 
       system = "x86_64-linux";
-      pkgs = import nixpkgs { inherit system; };
+      pkgs = import nixpkgs { 
+        inherit system;
+        overlays = [ nur.overlays.default ];
+      };
       # helper for pure HM targets
     in {
       nixosConfigurations = {
@@ -48,6 +59,8 @@
           specialArgs = { inherit inputs nixpkgs; };
           modules = [
             lanzaboote.nixosModules.lanzaboote
+            nur.modules.nixos.default
+            nur.legacyPackages."${system}".repos.iopq.modules.xraya
             ./hosts/killi/configuration.nix
             (import ./modules {
               inherit inputs;
@@ -57,6 +70,7 @@
             home-manager.nixosModules.home-manager {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = { inherit inputs; };
               home-manager.users.poaclu = { ... }: {
               imports = [
                 ./home/modules/shell
@@ -74,6 +88,8 @@
           specialArgs = { inherit inputs nixpkgs; };
           modules = [
             lanzaboote.nixosModules.lanzaboote
+            nur.modules.nixos.default
+            nur.legacyPackages."${system}".repos.iopq.modules.xraya
             ./hosts/kermel/configuration.nix
             (import ./modules {
               inherit inputs;
