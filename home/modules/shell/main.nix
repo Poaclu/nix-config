@@ -106,7 +106,10 @@
           fgrep = "fgrep --color=auto";
           globurl = "noglob urlglobber ";
           grep = "grep";
+          ga = "git add";
+          gaa = "git add -A";
           gs = "git status";
+          gc = "git commit -m";
           gd = "git diff";
           hackwow = "cmatrix | lolcat";
           history = "omz_history";
@@ -145,6 +148,7 @@
           vimdiff = "nvim -d";
           wget = "wget -c";
           which-command = "whence";
+          ":q" = "exit";
         };
       };
     };
