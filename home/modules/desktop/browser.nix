@@ -1,10 +1,6 @@
 { config, inputs, pkgs, ... }:
-let
-  zen = inputs.zen-browser.packages.${pkgs.system}.default;
-in {
-  programs.firefox = {
+{ programs.zen-browser = {
     enable = true;
-    package = zen;                       # use Zen with the HM wrapper
     languagePacks = [ "fr" "en-US" ];
     nativeMessagingHosts = [ pkgs.firefoxpwa ];
 

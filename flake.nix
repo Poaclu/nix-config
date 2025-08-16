@@ -79,8 +79,10 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = { inherit inputs; };
+              home-manager.backupFileExtension = "bak";
               home-manager.users.poaclu = { ... }: {
               imports = [
+                inputs.zen-browser.homeModules.beta
                 ./home/modules/shell
                 ./home/modules/desktop
                 ./home/modules/main.nix
@@ -107,8 +109,10 @@
             home-manager.nixosModules.home-manager {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
+              home-manager.backupFileExtension = "bak";
               home-manager.users.poaclu = { ... }: {
               imports = [
+                inputs.zen-browser.homeModules.beta
                 ./home/modules/shell
                 ./home/modules/desktop
                 ./home/modules/main.nix
