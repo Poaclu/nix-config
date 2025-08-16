@@ -51,7 +51,4 @@ in {
       };
     };
   };
-
-  # Remove any Zen entry here. Let the module handle it.
-  home.packages = [ ];
 }
