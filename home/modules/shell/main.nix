@@ -31,6 +31,7 @@
         enable = true;
         enableZshIntegration = true;
       };
+      ripgrep.enable = true;
       topgrade = {
         enable = true;
         settings = {
