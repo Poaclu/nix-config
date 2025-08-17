@@ -37,7 +37,17 @@
         };
       };
     };
-    services.flameshot = {
-      enable = true;
+    services = {
+      dunst = {
+        enable = true;
+        settings = {
+          global = {
+            follow = "mouse";
+          };
+        };
+      };
+      flameshot = {
+        enable = true;
+      };
     };
 }

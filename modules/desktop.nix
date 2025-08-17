@@ -61,7 +61,6 @@
     environment.systemPackages = with pkgs; [
       alacritty
       cliphist
-      dunst
       libnotify
       grim
       hyprpaper
