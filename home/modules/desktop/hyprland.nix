@@ -27,6 +27,7 @@
 				"discord"
 				"discover-overlay"
 				"steam"
+				"heroic"
 				"obsidian"
 			];
 			ecosystem = {
