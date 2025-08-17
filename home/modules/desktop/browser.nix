@@ -1,5 +1,7 @@
 { config, inputs, pkgs, ... }:
-{ programs.zen-browser = {
+{ programs = {
+    zen-browser.enable = true;
+    firefox = {
     enable = true;
     languagePacks = [ "fr" "en-US" ];
     nativeMessagingHosts = [ pkgs.firefoxpwa ];
@@ -46,5 +48,6 @@
         "bitwarden-password-manager@bitwarden.com" = { installation_mode = "allowed"; };
       };
     };
+  };
   };
 }
