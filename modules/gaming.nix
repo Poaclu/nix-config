@@ -32,12 +32,12 @@
 
     environment.systemPackages = with pkgs; [
       bottles
-      heroic
       lutris
       mangohud
       protonup-qt
       protonplus
       r2modman
+      (heroic.override {extraPkgs = pkgs: [gamescope];})
     ];
     hardware = {
       graphics = {
