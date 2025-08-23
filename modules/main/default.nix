@@ -5,8 +5,6 @@
     ./bluetooth.nix
     ./boot.nix
     ./console.nix
-    ./desktop.nix
-    ./gaming.nix
     ./lanzaboot.nix
     ./nix/default.nix
     ./network.nix

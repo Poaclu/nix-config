@@ -70,11 +70,8 @@
             nur.modules.nixos.default
             nur.legacyPackages."${system}".repos.iopq.modules.xraya
             ./hosts/killi/configuration.nix
-            (import ./modules {
-              inherit inputs;
-              pkgs = pkgs;
-              lib = pkgs.lib;
-            })
+            ./modules/main/default.nix
+            ./modules/desktop/default.nix
             home-manager.nixosModules.home-manager {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
@@ -101,11 +98,8 @@
             nur.modules.nixos.default
             nur.legacyPackages."${system}".repos.iopq.modules.xraya
             ./hosts/kermel/configuration.nix
-            (import ./modules {
-              inherit inputs;
-              pkgs = pkgs;
-              lib = pkgs.lib;
-            })
+            ./modules/main/default.nix
+            ./modules/desktop/default.nix
             home-manager.nixosModules.home-manager {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
