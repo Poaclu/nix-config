@@ -70,8 +70,8 @@
             nur.modules.nixos.default
             nur.legacyPackages."${system}".repos.iopq.modules.xraya
             ./hosts/killi/configuration.nix
-            ./modules/common/
-            ./modules/desktop/
+            ./modules/common
+            ./modules/desktop
             home-manager.nixosModules.home-manager {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
@@ -98,8 +98,8 @@
             nur.modules.nixos.default
             nur.legacyPackages."${system}".repos.iopq.modules.xraya
             ./hosts/kermel/configuration.nix
-            ./modules/common/
-            ./modules/desktop/
+            ./modules/common
+            ./modules/desktop
             home-manager.nixosModules.home-manager {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
