@@ -25,4 +25,5 @@
   };
   gaming.enable = true;
   networking.hostName = "kermel";
+  swap.size = 16;
 }
