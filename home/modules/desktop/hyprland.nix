@@ -158,6 +158,7 @@
 					", XF86AudioPrev, exec, playerctl previous"
 					", XF86MonBrightnessUp, exec, brightnessctl s +10%"
 					", XF86MonBrightnessDown, exec, brightnessctl s 10%-"
+					"$mainMod, U, exec, hyprlock & sleep 2 && systemctl suspend"
 				];
 				bindm = [ 
 					"$mainMod, mouse:272, movewindow"
