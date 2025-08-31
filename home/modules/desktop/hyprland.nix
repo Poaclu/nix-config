@@ -107,6 +107,8 @@
 							"$mainMod, B, exec, brave"
 							"$mainMod, F, exec, $browser"
 							"$mainMod, L, exec, $lock"
+							"$mainMod, W, exec, systemctl --user restart waybar.service"
+							"$mainMod SHIFT, W, exec, systemctl --user kill waybar.service || systemctl --user start waybar.service"
 							"Control_L Alt_L, Delete, exec, $menu"
 							"$mainMod, left, movefocus, l"
 							"$mainMod, right, movefocus, r"
