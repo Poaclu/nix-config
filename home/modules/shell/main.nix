@@ -131,6 +131,7 @@
           pdw = "pwd";
           poweroff = "sudo poweroff";
           rd = "rmdir";
+          rgf = "rg --files | rg";
           reboot = "sudo reboot";
           rm = "rm -virf";
           rr = "curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash";
