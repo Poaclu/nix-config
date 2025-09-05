@@ -715,6 +715,22 @@
         "type": "github"
       }
     },
+    "mobile-nixos": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1756053156,
+        "narHash": "sha256-S3Hc9YfNg2uZV6OKnJw6LZMj0l+Di8i0DqdMo+cYdd4=",
+        "owner": "mobile-nixos",
+        "repo": "mobile-nixos",
+        "rev": "a47b88eee1b5c5f61f6f8f377592fee06b8933ab",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mobile-nixos",
+        "repo": "mobile-nixos",
+        "type": "github"
+      }
+    },
     "nix-github-actions": {
       "inputs": {
         "nixpkgs": [
@@ -927,6 +943,7 @@
         "home-manager": "home-manager_2",
         "hyprland": "hyprland",
         "lanzaboote": "lanzaboote",
+        "mobile-nixos": "mobile-nixos",
         "nixpkgs": "nixpkgs_2",
         "nur": "nur",
         "play": "play",

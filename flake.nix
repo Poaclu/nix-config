@@ -40,6 +40,10 @@
       url = "github:TophC7/play.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    mobile-nixos = {
+      url = "github:mobile-nixos/mobile-nixos";
+      flake = false; # We import it directly, not as a flake
+    };
   };
 
   outputs =
@@ -51,6 +55,7 @@
       hyprland,
       home-manager,
       nur,
+      mobile-nixos,
       ...
     }@inputs:
     let 
@@ -111,6 +116,33 @@
                 ./home/modules/desktop
                 ./home/modules/main.nix
                 ./home/modules/user.nix
+              ];
+              _module.args.inputs = inputs;
+              };
+            }
+          ];
+        };
+        odonata = nixpkgs.lib.nixosSystem {
+          system = "aarch64-linux";
+          specialArgs = { inherit inputs nixpkgs; };
+          modules = [
+            (import "${mobile-nixos}/lib/configuration.nix" { device = "oneplus-enchilada"; })
+            lanzaboote.nixosModules.lanzaboote
+            nur.modules.nixos.default
+            nur.legacyPackages."${system}".repos.iopq.modules.xraya
+            ./hosts/odonata/configuration.nix
+            ./modules/common
+            home-manager.nixosModules.home-manager {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.backupFileExtension = "bak";
+              home-manager.users.poaclu = { ... }: {
+              imports = [
+                inputs.zen-browser.homeModules.beta
+                ./home/modules/shell
+                ./home/modules/main.nix
+                ./home/modules/user.nix
+                ./home/modules/nix.nix
               ];
               _module.args.inputs = inputs;
               };

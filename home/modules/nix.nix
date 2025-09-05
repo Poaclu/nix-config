@@ -20,7 +20,7 @@
 
   config = {
     nix = lib.mkIf config.poaclu.home.nix.enable {
-      package = pkgs.nixVersions.latest;
+      package = lib.mkForce pkgs.nixVersions.latest;
       settings.experimental-features = [ "nix-command" "flakes" ];
     };
   };
