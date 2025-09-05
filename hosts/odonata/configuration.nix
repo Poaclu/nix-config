@@ -14,20 +14,31 @@
   networking.hostName = "odonata";
 
   # Enable SSH server (essential for mobile device access)
-  services.openssh.enable = true;
-  services.openssh.settings.PermitRootLogin = "yes"; # For initial setup
-  services.openssh.settings.PasswordAuthentication = true; # For initial setup
-
-  # Enable GNOME Desktop Environment
-  services.xserver = {
-    enable = true;
-    xkb.layout = "fr";
+  services = {
+    openssh = {
+      enable = true;
+      settings = {
+        PermitRootLogin = "yes"; # For initial setup
+        PasswordAuthentication = true; # For initial setup
+      };
+    };
+    xserver = {
+      enable = true;
+      xkb.layout = "fr";
+    };
+    desktopManager.gnome.enable = true;
+    xserver.desktopManager = {
+      phosh = {
+        enable = true;
+        group = "users";
+        user = "poaclu";
+      };
+      #plasma5.mobile.enable = true;
+    };
+    displayManager.gdm.enable = true;
+    gnome.gnome-keyring.enable = true;
   };
-  services.desktopManager.gnome.enable = true;
-  services.displayManager.gdm.enable = true;
 
-  # Enable GNOME Keyring for password management
-  services.gnome.gnome-keyring.enable = true;
 
   # Enable dconf for GNOME settings
   programs.dconf.enable = true;
@@ -61,6 +72,7 @@
     asciiquarium
     neovim
     kitty
+    phosh-mobile-settings
   ];
 
 } 
