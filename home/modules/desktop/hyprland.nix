@@ -24,6 +24,7 @@
 				"sleep 1 && systemctl --user start waybar.service"
 				"swww-daemon &"
 				"$browser"
+				"beeper"
 				"discord"
 				"discover-overlay"
 				"steam"

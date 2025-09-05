@@ -61,6 +61,7 @@
     environment.systemPackages = with pkgs; [
       alacritty
       cliphist
+      beeper
       libnotify
       grim
       hyprpaper
