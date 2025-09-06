@@ -132,6 +132,7 @@
             nur.legacyPackages."${system}".repos.iopq.modules.xraya
             ./hosts/odonata/configuration.nix
             ./modules/common
+            ./modules/desktop
             home-manager.nixosModules.home-manager {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
@@ -143,6 +144,7 @@
                 ./home/modules/desktop
                 ./home/modules/main.nix
                 ./home/modules/user.nix
+                ./home/modules/nix.nix
                 ./hosts/odonata/home.nix
               ];
               _module.args.inputs = inputs;

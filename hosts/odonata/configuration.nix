@@ -15,6 +15,8 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   
   networking.hostName = "odonata";
+  gaming.enable = false;
+  desktop.enable = false;
 
   # Enable SSH server (essential for mobile device access)
   services = {
