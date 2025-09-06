@@ -1,6 +1,6 @@
 { config, inputs, pkgs, lib, ... }:
 {
-	wayland.windowManager.hyprland = {
+	wayland.windowManager.hyprland = lib.mkIf config.desktop.enable {
 		enable = true;
 		package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
 		portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
