@@ -4,6 +4,9 @@
 { config, lib, pkgs, ... }:
 
 {
+  imports = [
+    ./system-config.nix
+  ];
   boot.grub.enable = false;
   # Allow unfree packages (needed for OnePlus firmware)
   nixpkgs.config = {
