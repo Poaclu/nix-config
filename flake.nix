@@ -140,9 +140,10 @@
               imports = [
                 inputs.zen-browser.homeModules.beta
                 ./home/modules/shell
+                ./home/modules/desktop
                 ./home/modules/main.nix
                 ./home/modules/user.nix
-                ./home/modules/nix.nix
+                ./hosts/odonata/home.nix
               ];
               _module.args.inputs = inputs;
               };

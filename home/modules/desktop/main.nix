@@ -4,11 +4,9 @@
       packages = with pkgs; [
         brave
         brightnessctl
-          discord
           discover-overlay
           font-awesome
           libmpdclient
-          microsoft-edge
           nautilus
           obsidian
           parsec-bin
@@ -16,7 +14,6 @@
           playerctl
           prismlauncher
           protonvpn-gui
-          spotify
 	  swww
           xfce.thunar
       ];
@@ -45,9 +42,6 @@
             follow = "mouse";
           };
         };
-      };
-      flameshot = {
-        enable = true;
       };
     };
 }
