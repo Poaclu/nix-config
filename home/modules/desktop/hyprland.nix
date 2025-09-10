@@ -89,7 +89,6 @@
 							};
 							};
 							gestures = {
-							workspace_swipe = false;
 							};
 							device = {
 							name = "epic-mouse-v1";
