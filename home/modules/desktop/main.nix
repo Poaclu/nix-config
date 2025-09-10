@@ -7,6 +7,7 @@
           discover-overlay
           font-awesome
           libmpdclient
+          hyprshot
           nautilus
           obsidian
           parsec-bin

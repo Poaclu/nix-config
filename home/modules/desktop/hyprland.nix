@@ -138,6 +138,9 @@
 							"$mainMod SHIFT, S, movetoworkspace, special:magic"
 							"$mainMod, mouse_down, workspace, e+1"
 							"$mainMod, mouse_up, workspace, e-1"
+							"$mainMod, PRINT, exec, hyprshot -m output"
+							"$shiftMod, PRINT, exec, hyprshot -m window"
+							", PRINT, exec, hyprshot -m region"
 							];
 				"$desk1" = "ampersand";
 				"$desk2" = "eacute";
