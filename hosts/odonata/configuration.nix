@@ -16,7 +16,11 @@
   
   networking.hostName = "odonata";
   gaming.enable = false;
-  desktop.enable = false;
+  desktop = {
+    enable = false;
+    mobileonly = true;
+  };
+  anti-virus.enable = false;
 
   # Enable SSH server (essential for mobile device access)
   services = {
@@ -41,30 +45,57 @@
       #plasma5.mobile.enable = true;
     };
     displayManager.gdm.enable = true;
-    gnome.gnome-keyring.enable = true;
+    gnome = {
+      gnome-keyring.enable = true;
+      core-apps.enable = true;
+    };
   };
 
+  mobile = {
+    beautification = {
+      silentBoot = true;
+      splash = true;
+    };
+    boot.boot-control.enable = true;
+  };
+
+  virtualisation.waydroid.enable = true;
+
+  boot = {
+    initrd.verbose = false;
+    consoleLogLevel = 3;
+    kernelParams = [
+      "quiet"
+      "loglevel=3"
+      "udev.log_priority=3"
+      "systemd.show_status=false"
+      "vt.global_cursor_default=0"
+      "splash"
+      "reboot=hard"
+      "panic=3"
+    ];
+  };
 
   # Enable dconf for GNOME settings
   programs.dconf.enable = true;
 
   # Remove unwanted GNOME applications
-  environment.gnome.excludePackages = with pkgs; [
-    baobab      # disk usage analyzer
-    cheese      # photo booth
-    eog         # image viewer
-    epiphany    # web browser
-    simple-scan # document scanner
-    totem       # video player
-    yelp        # help viewer
-    evince      # document viewer
-    file-roller # archive manager
-    geary       # email client
-    seahorse    # password manager
-    gnome-calculator gnome-calendar gnome-characters gnome-clocks gnome-contacts
-    gnome-font-viewer gnome-logs gnome-maps gnome-music gnome-screenshot
-    gnome-system-monitor gnome-weather gnome-disk-utility pkgs.gnome-connections
-  ];
+  #environment.gnome.excludePackages = with pkgs; [
+    #baobab      # disk usage analyzer
+    #cheese      # photo booth
+    #eog         # image viewer
+    #epiphany    # web browser
+    #simple-scan # document scanner
+    #totem       # video player
+    #yelp        # help viewer
+    #evince      # document viewer
+    #file-roller # archive manager
+    #geary       # email client
+    #seahorse    # password manager
+    #gnome-calculator gnome-calendar gnome-characters gnome-clocks gnome-contacts
+    #gnome-font-viewer gnome-logs gnome-maps gnome-music gnome-screenshot
+    #gnome-system-monitor gnome-weather gnome-disk-utility pkgs.gnome-connections
+  #];
 
   # Minimal essential packages
   environment.systemPackages = with pkgs; [
