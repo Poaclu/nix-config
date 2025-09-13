@@ -25,7 +25,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     ## App specific iputs
-    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
@@ -34,11 +37,18 @@
     ## Extensions
     chaotic = {
       url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+      };
     };
     play = {
       url = "github:TophC7/play.nix";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        chaotic.follows = "chaotic";
+        home-manager.follows = "home-manager";
+      };
     };
     mobile-nixos = {
       url = "github:mobile-nixos/mobile-nixos";
