@@ -150,6 +150,7 @@
           vimdiff = "nvim -d";
           wget = "wget -c";
           which-command = "whence";
+          ":e" = "nvim";
           ":q" = "exit";
         };
       };
