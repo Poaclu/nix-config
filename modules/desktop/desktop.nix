@@ -5,83 +5,85 @@
   ...
 }:
 
-{
+let 
+  cfg = config.desktop;
+  inherit (lib) mkIf mkMerge mkForce;
+in {
 
   options = {
     desktop = {
       enable = lib.mkEnableOption "Enable Desktop environment";
       xdg = lib.mkEnableOption "Enable XDG environment";
+      x64 = lib.mkEnableOption "Enable x64 cpu apps";
     };
   };
 
   config = lib.mkIf config.desktop.enable {
-
-    systemd.user.services.xdg-desktop-portal-gtk = {
-      wantedBy = [ "xdg-desktop-portal.service" ];
-      before = [ "xdg-desktop-portal.service" ];
-    };
-
-    services = {
-      picom.enable = true;
-      displayManager.gdm.enable = true;
-      pipewire = {
-        enable = true;
-        alsa.enable = true;
-        alsa.support32Bit = true;
-        pulse.enable = true;
-        jack.enable = true;
+      systemd.user.services.xdg-desktop-portal-gtk = {
+        wantedBy = [ "xdg-desktop-portal.service" ];
+        before = [ "xdg-desktop-portal.service" ];
       };
-      xserver = {
-        enable = true;
-        xkb.layout = "fr";
-      };
-    };
 
-    xdg.portal = lib.mkIf config.desktop.xdg {
-      enable = true;
-      extraPortals = with pkgs; [
-        xdg-desktop-portal-wlr
-        kdePackages.xdg-desktop-portal-kde
-        xdg-desktop-portal-gtk
-      ];
-      wlr = {
+      services = {
+        picom.enable = true;
+        displayManager.gdm.enable = true;
+        pipewire = {
+          enable = true;
+          alsa.enable = true;
+          alsa.support32Bit = true;
+          pulse.enable = true;
+          jack.enable = true;
+        };
+        xserver = {
+          enable = true;
+          xkb.layout = "fr";
+        };
+      };
+
+      xdg.portal = lib.mkIf config.desktop.xdg {
         enable = true;
-        settings = {
-          # uninteresting for this problem, for completeness only
-          screencast = {
-            output_name = "eDP-1";
-            max_fps = 30;
-            chooser_type = "simple";
-            chooser_cmd = "${pkgs.slurp}/bin/slurp -f %o -or";
+        extraPortals = with pkgs; [
+          xdg-desktop-portal-wlr
+          kdePackages.xdg-desktop-portal-kde
+          xdg-desktop-portal-gtk
+        ];
+        wlr = {
+          enable = true;
+          settings = {
+            # uninteresting for this problem, for completeness only
+            screencast = {
+              output_name = "eDP-1";
+              max_fps = 30;
+              chooser_type = "simple";
+              chooser_cmd = "${pkgs.slurp}/bin/slurp -f %o -or";
+            };
           };
         };
       };
-    };
 
-    environment.systemPackages = with pkgs; [
-      alacritty
-      cliphist
-      beeper
-      libnotify
-      grim
-      hyprpaper
-      kitty
-      networkmanagerapplet
-      rofi-wayland
-      slurp
-      swaylock
-      swww
-      waybar
-      wlogout
-      wofi
-    ];
+      environment.systemPackages = with pkgs; [
+        alacritty
+        cliphist
+        libnotify
+        grim
+        hyprpaper
+        kitty
+        networkmanagerapplet
+        rofi-wayland
+        slurp
+        swaylock
+        swww
+        waybar
+        wlogout
+        wofi
+      ];
 
-    programs = {
-      firefox.enable = true;
-      hyprland = {
-        enable = true;
-        xwayland.enable = true;
+      programs = {
+        firefox.enable = true;
+        hyprland = {
+          enable = true;
+          xwayland.enable = true;
+        };
       };
     };
-  };
 }

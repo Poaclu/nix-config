@@ -17,8 +17,8 @@
   networking.hostName = "odonata";
   gaming.enable = false;
   desktop = {
-    enable = false;
-    mobileonly = true;
+    enable = true;
+    x64 = false;
   };
   anti-virus.enable = false;
 
