@@ -42,6 +42,10 @@
               "git_repos"
               "nix"
               "home_manager"
+              "cargo"
+              "firmware"
+              "snap"
+              "rustup"
             ];
             set_title = false;
             display_time = true;
