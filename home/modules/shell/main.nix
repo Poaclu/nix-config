@@ -129,9 +129,9 @@
           md = "mkdir -p";
           mount = "sudo mount";
           mv = "mv -iv";
-          update-home = "home-manager switch --flake ~/.config/home-manager/ -b bak || topgrade --only home_manager";
-          update-nix = "sudo nixos-rebuild switch --flake /etc/nixos/ || topgrade --only system";
-          upgrade-flake = "nix flake update --flake ~/sources/nix-config && nix flake update --flake ~/.config/home-manager && topgrade --only system home_manager";
+          update-home = "topgrade --only home_manager";
+          update-nix = "topgrade --only system";
+          upgrade-flake = "nix flake update --flake ~/sources/nix-config && topgrade --only system";
           pacman = "sudo pacman";
           pdw = "pwd";
           poweroff = "sudo poweroff";
