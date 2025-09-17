@@ -69,7 +69,7 @@ in {
         hyprpaper
         kitty
         networkmanagerapplet
-        rofi-wayland
+        rofi
         slurp
         swaylock
         swww
