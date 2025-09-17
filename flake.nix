@@ -102,6 +102,7 @@
               home-manager.users.poaclu = { ... }: {
               imports = [
                 inputs.zen-browser.homeModules.beta
+                inputs.nvf.homeManagerModules.default
                 ./home/modules/shell
                 ./home/modules/desktop
                 ./home/modules/main.nix
@@ -129,6 +130,7 @@
               home-manager.users.poaclu = { ... }: {
               imports = [
                 inputs.zen-browser.homeModules.beta
+                inputs.nvf.homeManagerModules.default
                 ./home/modules/shell
                 ./home/modules/desktop
                 ./home/modules/main.nix
