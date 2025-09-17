@@ -49,18 +49,13 @@
             notify_each_step = true;
           };
           commands = {
-            home-manager = "home-manager switch --flake ~/.config/home-manager/";
+            home-manager = "git -C ~/.config/home-manager/ pull --ff-only && home-manager switch --flake ~/.config/home-manager/";
           };
           linux = {
             nix_arguments = "--flake /etc/nixos/";
             nix_env_arguments = "--quiet --always --prebuilt-only";
           };
           firmware.upgrade = false;
-          git = {
-            repos = [
-              "~/.config/home-manager/"
-            ];
-          };
         };
       };
       zellij = {
@@ -132,7 +127,7 @@
           md = "mkdir -p";
           mount = "sudo mount";
           mv = "mv -iv";
-          update-home = "topgrade --only git_repos home_manager";
+          update-home = "topgrade --only home_manager";
           update-nix = "topgrade --only system";
           upgrade-flake = "nix flake update --flake ~/sources/nix-config && topgrade --only system";
           pacman = "sudo pacman";
