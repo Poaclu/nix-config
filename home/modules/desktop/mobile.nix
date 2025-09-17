@@ -3,6 +3,12 @@
   options = {
     desktop = {
       enable = lib.mkOption {
+        description = "Enable desktop apps";
+        type = lib.types.bool;
+        default = true;
+        example = false;
+      };
+      x64 = lib.mkOption {
         description = "Enable x64 cpu apps";
         type = lib.types.bool;
         default = true;
@@ -10,9 +16,10 @@
       };
     };
   };
-  config = lib.mkIf config.desktop.enable {
+  config = lib.mkIf config.desktop.x64 {
     home = {
       packages = with pkgs; [
+          beeper
           discord
           microsoft-edge
           spotify

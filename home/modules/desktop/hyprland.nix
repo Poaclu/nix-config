@@ -1,8 +1,16 @@
 { config, inputs, pkgs, lib, ... }:
-{
-	wayland.windowManager.hyprland = {
+let 
+	cfg = config.desktop;
+in {
+	wayland.windowManager.hyprland = lib.mkIf config.desktop.enable {
 		enable = true;
-		package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+		package = 
+			if cfg.x64 then
+				inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland
+			else 
+				(inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland.override { 
+					withSystemd = false;
+				});
 		portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
 		settings = {
 			monitor = [

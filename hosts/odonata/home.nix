@@ -1,5 +1,8 @@
 { config, lib, pkgs, ... }:
 
 {
-  desktop.enable = false;
+  desktop = {
+    enable = true;
+    x64 = false;
+  };
 } 
