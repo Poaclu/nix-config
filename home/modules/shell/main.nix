@@ -43,11 +43,6 @@
               "nix"
               "home_manager"
             ];
-            git = {
-              repos = [
-                "~/.config/home-manager/"
-              ];
-            };
             set_title = false;
             display_time = true;
             assume_yes = false;
@@ -61,6 +56,11 @@
             nix_env_arguments = "--quiet --always --prebuilt-only";
           };
           firmware.upgrade = false;
+          git = {
+            repos = [
+              "~/.config/home-manager/"
+            ];
+          };
         };
       };
       zellij = {
