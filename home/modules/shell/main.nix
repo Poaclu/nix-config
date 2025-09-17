@@ -43,6 +43,11 @@
               "nix"
               "home_manager"
             ];
+            git = {
+              repos = [
+                "~/.config/home-manager/"
+              ];
+            };
             set_title = false;
             display_time = true;
             assume_yes = false;
@@ -127,7 +132,7 @@
           md = "mkdir -p";
           mount = "sudo mount";
           mv = "mv -iv";
-          update-home = "topgrade --only home_manager";
+          update-home = "topgrade --only git_repos home_manager";
           update-nix = "topgrade --only system";
           upgrade-flake = "nix flake update --flake ~/sources/nix-config && topgrade --only system";
           pacman = "sudo pacman";
