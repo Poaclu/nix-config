@@ -37,6 +37,10 @@
         home-manager.follows = "home-manager";
       };
     };
+    nvf = {
+      url = "github:notashelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     ## Extensions
     chaotic = {
       url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
@@ -153,6 +157,7 @@
               home-manager.users.poaclu = { ... }: {
               imports = [
                 inputs.zen-browser.homeModules.beta
+                inputs.nvf.homeManagerModules.default
                 ./home/modules/shell
                 ./home/modules/desktop
                 ./home/modules/main.nix
@@ -161,21 +166,22 @@
                 ./hosts/odonata/home.nix
               ];
               _module.args.inputs = inputs;
-              };
-            }
-          ];
-        };
-      };
-      homeConfigurations = {
-        poaclu = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [
-            ./home/modules/shell
-            ./home/modules/main.nix
-            ./home/modules/user.nix
-            ./home/modules/nix.nix
-          ];
-        };
+            };
+          }
+        ];
       };
     };
+    homeConfigurations = {
+      poaclu = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [
+          ./home/modules/shell
+          ./home/modules/main.nix
+          ./home/modules/user.nix
+          ./home/modules/nix.nix
+          inputs.nvf.homeManagerModules.default
+        ];
+      };
+    };
+  };
 }
