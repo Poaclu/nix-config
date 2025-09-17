@@ -60,8 +60,6 @@
       };
       zellij = {
         enable = true;
-        enableZshIntegration = true;
-        attachExistingSession = true;
       };
       zoxide = {
         enable = true;
