@@ -34,9 +34,6 @@
           };
         };
       };
-      flameshot = {
-        enable = true;
-      };
     };
   };
 }
