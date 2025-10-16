@@ -18,6 +18,7 @@ in {
 					"desc:Samsung Electric Company LF27T35 HK2T402563, preferred, auto-center-left, auto, vrr, 1, cm, edid"
 					"desc:Samsung Electric Company S19C450 H4MG101147, preferred, auto-center-right, auto, vrr, 1, cm, edid"
 					"desc:AU Optronics 0x499F,prefered,auto,1,vrr,1"
+        "DSI-1,prefered,auto,2,vrr,1,transform,1"
 					", preferred, auto, auto, vrr, 1, cm, auto"
 			];
 			"$terminal" = "kitty";
