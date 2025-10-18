@@ -12,6 +12,9 @@ in {
 					withSystemd = false;
 				});
 		portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+    plugins = [
+      inputs.hyprgrass.packages.${pkgs.system}.default
+    ];
 		settings = {
 			monitor = [
 				"desc:LG Electronics LG ULTRAGEAR 308MAHUCD521, preferred, 0x0, auto, vrr, 1, cm, hdredid"
@@ -38,7 +41,7 @@ in {
 				"discover-overlay"
 				"steam"
 				"heroic"
-				"obsidian"
+        #"obsidian"
 			];
 			ecosystem = {
 				no_update_news = true;

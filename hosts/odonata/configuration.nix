@@ -4,7 +4,10 @@
   imports = [
     ./system-config.nix
   ];
-  boot.grub.enable = false;
+  boot = {
+    grub.enable = false;
+    plymouth_custom.enable = false;
+  };
   bluetooth.enable = true;
   nixpkgs.config = {
     allowUnfree = true;
