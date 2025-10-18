@@ -1,4 +1,9 @@
-{ config, inputs, pkgs, lib, ... }:
+{ 
+  config,
+  inputs,
+  pkgs,
+  lib,
+  ... }:
 let 
 	cfg = config.desktop;
 in {
@@ -12,9 +17,7 @@ in {
 					withSystemd = false;
 				});
 		portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
-    plugins = [
-      inputs.hyprgrass.packages.${pkgs.system}.default
-    ];
+    plugins = [ inputs.hyprgrass.packages.${pkgs.system}.default ];
 		settings = {
 			monitor = [
 				"desc:LG Electronics LG ULTRAGEAR 308MAHUCD521, preferred, 0x0, auto, vrr, 1, cm, hdredid"
