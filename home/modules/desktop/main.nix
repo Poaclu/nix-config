@@ -16,6 +16,7 @@
           prismlauncher
           protonvpn-gui
 	  swww
+      trayscale
           xfce.thunar
       ];
     };

@@ -42,6 +42,7 @@ in {
 				"beeper"
 				"discord"
 				"discover-overlay"
+        "trayscale"
         #"steam"
         #"heroic"
         #"obsidian"
