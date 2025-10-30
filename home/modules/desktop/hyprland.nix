@@ -36,14 +36,14 @@ in {
 			exec-once = [ 
 				"$terminal"
 				"nm-applet --indicator &"
-				"sleep 1 && systemctl --user start waybar.service"
+				"waybar &"
 				"swww-daemon &"
 				"$browser"
 				"beeper"
 				"discord"
 				"discover-overlay"
-				"steam"
-				"heroic"
+        #"steam"
+        #"heroic"
         #"obsidian"
 			];
 			ecosystem = {
