@@ -24,9 +24,13 @@
     programs = {
       git = {
         enable = true;
-        userName = config.shell.git.user;
-        userEmail = config.shell.git.mail;
-        extraConfig.core.editor = "nvim";
+        settings = {
+          user = {
+            name = config.shell.git.user;
+            email = config.shell.git.mail;
+          };
+          core.editor = "nvim";
+        };
       };
     };
   };
