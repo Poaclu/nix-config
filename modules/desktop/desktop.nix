@@ -24,6 +24,8 @@ in {
         before = [ "xdg-desktop-portal.service" ];
       };
 
+      virtualisation.waydroid.enable = true;
+
       services = {
         picom.enable = true;
         displayManager.gdm.enable = true;

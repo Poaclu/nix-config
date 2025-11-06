@@ -51,7 +51,6 @@
     boot.boot-control.enable = true;
   };
 
-  virtualisation.waydroid.enable = true;
 
   boot = {
     initrd.verbose = false;
