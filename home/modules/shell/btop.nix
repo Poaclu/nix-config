@@ -38,7 +38,7 @@ in {
         graph_symbol_proc = "default";
         shown_boxes = "cpu mem net proc";
         update_ms = 1000;
-        proc_sorting = "memory";
+        proc_sorting = "cpu lazy";
         proc_reversed = false;
         proc_tree = false;
         proc_colors = true;
