@@ -30,11 +30,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprgrass = {
-      url = "github:horriblename/hyprgrass";
-      inputs.hyprland.follows = "hyprland";
-    };
-
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs = {
@@ -75,7 +70,6 @@
       disko,
       lanzaboote,
       hyprland,
-      hyprgrass,
       home-manager,
       nur,
       mobile-nixos,
