@@ -107,6 +107,7 @@
                 ./home/modules/desktop
                 ./home/modules/main.nix
                 ./home/modules/user.nix
+                ./hosts/killi/home.nix
               ];
               _module.args.inputs = inputs;
               };
