@@ -21,7 +21,16 @@
   config = {
     nix = lib.mkIf config.poaclu.home.nix.enable {
       package = lib.mkForce pkgs.nixVersions.latest;
-      settings.experimental-features = [ "nix-command" "flakes" ];
+      settings = {
+        experimental-features = [
+          "nix-command"
+          "flakes"
+        ];
+        trusted-users = [
+          "poaclu"
+          "root"
+        ];
+      };
     };
   };
 }

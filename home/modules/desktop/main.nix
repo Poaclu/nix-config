@@ -4,6 +4,7 @@
       packages = with pkgs; [
         brave
         brightnessctl
+        cachix
           discover-overlay
           font-awesome
           libmpdclient

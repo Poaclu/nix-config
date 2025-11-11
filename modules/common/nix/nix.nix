@@ -32,10 +32,16 @@ in
   };
   config = lib.mkIf cN.enable {
     nix = {
-      settings.experimental-features = [
-        "nix-command"
-        "flakes"
-      ];
+      settings = {
+        experimental-features = [
+          "nix-command"
+          "flakes"
+        ];
+        trusted-users = [
+          "poaclu"
+          "root"
+        ];
+      };
     };
     system.stateVersion = cN.version;
   };
