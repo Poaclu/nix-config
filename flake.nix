@@ -6,7 +6,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/Home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -92,8 +92,8 @@
             nur.modules.nixos.default
             nur.legacyPackages."${system}".repos.iopq.modules.xraya
             ./hosts/killi/configuration.nix
-            ./modules/common
-            ./modules/desktop
+            ./NixOS/common
+            ./NixOS/desktop
             home-manager.nixosModules.home-manager {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
@@ -103,10 +103,10 @@
               imports = [
                 inputs.zen-browser.homeModules.beta
                 inputs.nvf.homeManagerModules.default
-                ./home/modules/shell
-                ./home/modules/desktop
-                ./home/modules/main.nix
-                ./home/modules/user.nix
+                ./Home/shell
+                ./Home/desktop
+                ./Home/main.nix
+                ./Home/user.nix
                 ./hosts/killi/home.nix
               ];
               _module.args.inputs = inputs;
@@ -122,8 +122,8 @@
             nur.modules.nixos.default
             nur.legacyPackages."${system}".repos.iopq.modules.xraya
             ./hosts/kermel/configuration.nix
-            ./modules/common
-            ./modules/desktop
+            ./NixOS/common
+            ./NixOS/desktop
             home-manager.nixosModules.home-manager {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
@@ -132,10 +132,10 @@
               imports = [
                 inputs.zen-browser.homeModules.beta
                 inputs.nvf.homeManagerModules.default
-                ./home/modules/shell
-                ./home/modules/desktop
-                ./home/modules/main.nix
-                ./home/modules/user.nix
+                ./Home/shell
+                ./Home/desktop
+                ./Home/main.nix
+                ./Home/user.nix
               ];
               _module.args.inputs = inputs;
               };
@@ -151,8 +151,8 @@
             nur.modules.nixos.default
             nur.legacyPackages."${system}".repos.iopq.modules.xraya
             ./hosts/odonata/configuration.nix
-            ./modules/common
-            ./modules/desktop
+            ./NixOS/common
+            ./NixOS/desktop
             home-manager.nixosModules.home-manager {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
@@ -161,11 +161,11 @@
               imports = [
                 inputs.zen-browser.homeModules.beta
                 inputs.nvf.homeManagerModules.default
-                ./home/modules/shell
-                ./home/modules/desktop
-                ./home/modules/main.nix
-                ./home/modules/user.nix
-                ./home/modules/nix.nix
+                ./Home/shell
+                ./Home/desktop
+                ./Home/main.nix
+                ./Home/user.nix
+                ./Home/nix.nix
                 ./hosts/odonata/home.nix
               ];
               _module.args.inputs = inputs;
@@ -178,10 +178,10 @@
       poaclu = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [
-          ./home/modules/shell
-          ./home/modules/main.nix
-          ./home/modules/user.nix
-          ./home/modules/nix.nix
+          ./Home/shell
+          ./Home/main.nix
+          ./Home/user.nix
+          ./Home/nix.nix
           inputs.nvf.homeManagerModules.default
         ];
       };
