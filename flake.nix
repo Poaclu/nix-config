@@ -200,7 +200,6 @@
           ./Home/shell
           ./Home/main.nix
           ./Home/user.nix
-          ./Home/nix.nix
           ./Common
           inputs.nvf.homeManagerModules.default
         ];
