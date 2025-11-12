@@ -12,6 +12,12 @@ in
 {
   options = {
     customNix = {
+      enable = lib.mkOption {
+        description = "Enable Nix automatic gestion";
+        type = lib.types.bool;
+        default = true;
+        example = false;
+      };
       upgrade = lib.mkOption {
         default = false;
         type = lib.types.bool;

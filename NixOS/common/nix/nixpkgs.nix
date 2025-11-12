@@ -2,15 +2,22 @@
   config,
   lib,
   pkgs,
-  inputs,
   ...
 }:
 
 let
   cpkgs = config.nixpkgs;
+  cN = config.customNix;
 in
 {
   options = {
+    customNix = {
+      version = lib.mkOption {
+        type = lib.types.str;
+        default = "24.11";
+        description = "Version of NixOS";
+      };
+    };
     nixpkgs = {
       enable = lib.mkOption {
         description = "Enable Nix packages";
@@ -30,7 +37,7 @@ in
       wget
     ];
     programs.zsh.enable = true;
-
+    system.stateVersion = cN.version;
     nixpkgs.config = {
       allowUnfree = true;
     };

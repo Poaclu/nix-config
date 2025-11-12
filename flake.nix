@@ -1,6 +1,20 @@
 {
   description = "Nixos config flake";
 
+  nixConfig = {
+    extra-substituters = [
+      "https://cachix.cachix.org"
+      "https://nixpkgs.cachix.org"
+      "https://nix-community.cachix.org"
+    ];
+    extra-trusted-public-keys = [
+      "cachix.cachix.org-1:eWNHQldwUO7G2VkjpnjDbWwy4KQ/HNxht7H4SSoMckM="
+      "nixpkgs.cachix.org-1:q91R6hxbwFvDqTSDKwDAV4T5PxqXGxswD8vhONFMeOE="
+      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+    ];
+  };
+
   inputs = {
     ## NixOS Native
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -94,6 +108,7 @@
             ./hosts/killi/configuration.nix
             ./NixOS/common
             ./NixOS/desktop
+            ./Common
             home-manager.nixosModules.home-manager {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
@@ -107,6 +122,7 @@
                 ./Home/desktop
                 ./Home/main.nix
                 ./Home/user.nix
+                ./Common
                 ./hosts/killi/home.nix
               ];
               _module.args.inputs = inputs;
@@ -124,6 +140,7 @@
             ./hosts/kermel/configuration.nix
             ./NixOS/common
             ./NixOS/desktop
+            ./Common
             home-manager.nixosModules.home-manager {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
@@ -136,6 +153,7 @@
                 ./Home/desktop
                 ./Home/main.nix
                 ./Home/user.nix
+                ./Common
               ];
               _module.args.inputs = inputs;
               };
@@ -153,6 +171,7 @@
             ./hosts/odonata/configuration.nix
             ./NixOS/common
             ./NixOS/desktop
+            ./Common
             home-manager.nixosModules.home-manager {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
@@ -165,7 +184,7 @@
                 ./Home/desktop
                 ./Home/main.nix
                 ./Home/user.nix
-                ./Home/nix.nix
+                ./Common
                 ./hosts/odonata/home.nix
               ];
               _module.args.inputs = inputs;
@@ -182,6 +201,7 @@
           ./Home/main.nix
           ./Home/user.nix
           ./Home/nix.nix
+          ./Common
           inputs.nvf.homeManagerModules.default
         ];
       };
