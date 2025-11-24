@@ -27,9 +27,9 @@ in {
 		portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
 		settings = {
 			monitor = [
-				"desc:LG Electronics LG ULTRAGEAR 308MAHUCD521, preferred, 0x0, auto, vrr, 1, cm, hdredid"
-					"desc:Samsung Electric Company LF27T35 HK2T402563, preferred, auto-center-left, auto, vrr, 1, cm, edid"
-					"desc:Samsung Electric Company S19C450 H4MG101147, preferred, auto-center-right, auto, vrr, 1, cm, edid"
+				"desc:LG Electronics LG ULTRAGEAR 308MAHUCD521, preferred, 0x0, auto, vrr, 1, bitdepth, 10, cm, hdredid"
+					"desc:Samsung Electric Company LF27T35 HK2T402563, preferred, auto-center-left, auto, vrr, 1"
+					"desc:Samsung Electric Company S19C450 H4MG101147, preferred, auto-center-right, auto, vrr, 1"
 					"desc:AU Optronics 0x499F,prefered,auto,1,vrr,1"
         "DSI-1,prefered,auto,2,vrr,1,transform,1"
 					", preferred, auto, auto, vrr, 1, cm, auto"
