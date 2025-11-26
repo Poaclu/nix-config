@@ -44,9 +44,12 @@
 
 	  xdg.configFile."mpv/mpv.conf".text = ''
       vo=gpu-next
-      gpu-api=vulkan
-      hwdec=vaapi
+      gpu-api=auto
+      gpu-context=auto
+      target-colorspace-hint=auto
+      hwdec=auto
       hdr-compute-peak=yes
+      profile=high-quality
       tone-mapping=auto
     '';
     services = {
