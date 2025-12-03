@@ -1,5 +1,24 @@
-{ config, pkgs, libs, inputs, ... }:
-{ 
+{ pkgs, ... }:
+let 
+  myMPVConfig = ''
+        fullscreen=yes
+        save-position-on-quit=yes
+        keep-open=yes
+        volume-max=100
+        vo=gpu-next
+        gpu-api=vulkan
+        gpu-context=auto
+        target-colorspace-hint=auto
+        target-contrast=auto
+        target-trc=auto
+        hwdec=auto-safe
+        profile=gpu-hq
+        deband=yes
+        scale=ewa_lanczossharp
+        cscale=ewa_lanczossharp
+        dscale=mitchell
+  '';
+in { 
     home = {
       packages = with pkgs; [
         brave
@@ -8,6 +27,10 @@
         discover-overlay
         font-awesome
         jellyfin-mpv-shim
+      #kodi-wayland
+      # kodiPackages.jellyfin
+      # kodiPackages.jellycon
+      # kodiPackages.joystick
         libmpdclient
         hyprshot
         nautilus
@@ -40,18 +63,16 @@
       mpv = {
         enable = true;
       };
+      kodi = {
+        enable = true;
+        package = pkgs.kodi-wayland;
+      };
     };
 
-	  xdg.configFile."mpv/mpv.conf".text = ''
-      vo=gpu-next
-      gpu-api=auto
-      gpu-context=auto
-      target-colorspace-hint=auto
-      hwdec=auto
-      hdr-compute-peak=yes
-      profile=high-quality
-      tone-mapping=auto
-    '';
+	  xdg.configFile = {
+      "mpv/mpv.conf".text = myMPVConfig;
+      "jellyfin-mpv-shim/mpv.conf".text = myMPVConfig;
+    };
     services = {
       dunst = {
         enable = true;
