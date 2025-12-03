@@ -190,13 +190,13 @@ in {
 					"$mainMod, mouse:272, movewindow"
 					"$mainMod, mouse:273, resizewindow"
 				];
-				windowrulev2 = [ 
-					"suppressevent maximize, class:.*" # You'll probably like this.
-					"workspace 2,class:($browser)"
-					"workspace 7,class:(steam)"
-					"workspace 8,class:(obsidian)"
-					"workspace 9,class:(discord)"
-					"workspace 10,class:(pavucontrol)"
+				windowrule = [ 
+        #"suppressevent maximize, class:.*" # You'll probably like this.
+					"workspace 2, match:class $browser"
+					"workspace 7, match:class steam"
+					"workspace 8, match:class obsidian"
+					"workspace 9, match:class discord"
+					"workspace 10, match:class pavucontrol"
 				];
 		};
 	};
