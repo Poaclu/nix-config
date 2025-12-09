@@ -19,29 +19,9 @@
   desktop = {
     enable = true;
     x64 = false;
+    touch = true;
   };
   anti-virus.enable = false;
-
-  #  services = {
-  #  xserver = {
-  #    enable = true;
-  #    xkb.layout = "fr";
-  #  };
-  #  desktopManager.gnome.enable = true;
-  #  xserver.desktopManager = {
-  #    phosh = {
-  #      enable = true;
-  #      group = "users";
-  #      user = "poaclu";
-  #    };
-  #    #plasma5.mobile.enable = true;
-  #  };
-  #  displayManager.gdm.enable = true;
-  #  gnome = {
-  #    gnome-keyring.enable = true;
-  #    core-apps.enable = true;
-  #  };
-  #};
 
   mobile = {
     beautification = {
@@ -66,22 +46,5 @@
       "panic=3"
     ];
   };
-
-  # Enable dconf for GNOME settings
-  #programs.dconf.enable = true;
-
-  # Minimal essential packages
-  # environment.systemPackages = with pkgs; [
-  #  git
-  #  vim
-  #  wget
-  #  curl
-  #  home-manager
-  #  lazygit
-  #  asciiquarium
-  #  neovim
-  #  kitty
-  #  phosh-mobile-settings
-  #];
 
 } 

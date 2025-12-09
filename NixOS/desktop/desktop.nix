@@ -78,7 +78,6 @@ in {
         waybar
         wlogout
         wofi
-        kdePackages.plasma-mobile
       ];
 
       programs = {
