@@ -7,9 +7,15 @@
 				layer = "top";
 				height = 30;
 				spacing = 8;
-				modules-left = [ "custom/notification" "pavucontrol" "keyboard-state" "cpu" "memory" "temperature" ];
-				modules-center = [ "clock" "hyprland/workspaces" ];
+				modules-left = [ "cpu" "memory" "temperature" "custom/separator" "niri/window" ];
+				modules-center = [ "clock" "hyprland/workspaces" "niri/workspaces" ];
 				modules-right = [ "battery" "bluetooth" "tray" "network" "pulseaudio" "custom/power" ];
+        "niri/window" = {
+	        "format" = "{app_id} | {title}";
+        };
+				"niri/workspaces" = {
+					format = "{index}";
+				};
 				"hyprland/workspaces" = {
 					format = "{name}";
 					format-icons = {
@@ -40,7 +46,7 @@
 				};
 				clock = {
 					tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
-					format-alt = "{:%Y-%m-%d}";
+					format-alt = "{:%a %d/%m/%Y}";
 				};
 				cpu = {
 					format = "{usage}% ";
@@ -89,12 +95,6 @@
 					escape = true;
 					exec = "$HOME/.config/waybar/mediaplayer.py 2> /dev/null";
 				};
-				"custom/notification" = {
-					tooltip = false;
-					format = "";
-					on-click = "dunstctl history-pop";
-					escape = true;
-				};
 				"custom/power" = {
 					format = "⏻ ";
 					tooltip = false;
@@ -108,6 +108,9 @@
 					#};
 					on-click = "wlogout";
 				};
+        "custom/separator" = {
+          format = "|";
+        };
 			};
 		};
 		style =

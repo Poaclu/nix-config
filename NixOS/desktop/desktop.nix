@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  inputs,
   ...
 }:
 
@@ -78,6 +79,7 @@ in {
         waybar
         wlogout
         wofi
+        inputs.xwayland-satellite.packages.${pkgs.stdenv.hostPlatform.system}.default
       ];
 
       programs = {
@@ -85,6 +87,10 @@ in {
         hyprland = {
           enable = true;
           xwayland.enable = true;
+        };
+        niri = {
+          enable = true;
+          package = inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.niri;
         };
       };
     };

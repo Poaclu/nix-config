@@ -48,6 +48,14 @@
       #inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    niri = {
+      url = "github:YaLTeR/niri";
+    };
+    
+    xwayland-satellite = {
+      url = "github:Supreeeme/xwayland-satellite";
+    };
+
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs = {
@@ -91,6 +99,8 @@
       home-manager,
       nur,
       mobile-nixos,
+      xwayland-satellite,
+      niri,
       ...
     }@inputs:
     let 
