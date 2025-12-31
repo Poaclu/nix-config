@@ -58,6 +58,11 @@ in {
           font_size = 8.0;
           background_opacity = 0.7;
           dynamic_background_opacity = "yes";
+          window_decorations = "none";
+          enable_wayland_server_side_decorations = "no";
+          borderless_fullscreen = "yes";
+          tab_bar_style = "fade";
+          hide_window_decorations = "yes";
         };
       };
       mpv = {

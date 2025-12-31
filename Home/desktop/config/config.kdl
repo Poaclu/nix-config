@@ -62,7 +62,7 @@ input {
     }
 
     // Uncomment this to make the mouse warp to the center of newly focused windows.
-    // warp-mouse-to-focus
+    warp-mouse-to-focus
 
     // Focus windows and outputs automatically when moving the mouse into them.
     // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
@@ -154,7 +154,7 @@ output "Samsung Electric Company S19C450H4MG101147" {
     mode "1440x900@59.887"
 
     // You can use integer or fractional scale, for example use 1.5 for 150% scale.
-    scale 1
+    scale 0.5
 
     // Transform allows to rotate the output counter-clockwise, valid values are:
     // normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
@@ -224,7 +224,7 @@ layout {
     // You can change how the focus ring looks.
     focus-ring {
         // Uncomment this line to disable the focus ring.
-        // off
+        off
 
         // How many logical pixels the ring extends out from the windows.
         width 2
@@ -263,27 +263,27 @@ layout {
     border {
         // The settings are the same as for the focus ring.
         // If you enable the border, you probably want to disable the focus ring.
-        off
+        // off
 
         width 4
-        active-color "#ffc87f"
-        inactive-color "#505050"
+        active-color "#7fc8ff"
+        // inactive-color "#505050"
 
         // Color of the border around windows that request your attention.
-        urgent-color "#9b0000"
+        urgent-color "red"
 
         // Gradients can use a few different interpolation color spaces.
         // For example, this is a pastel rainbow gradient via in="oklch longer hue".
         //
         // active-gradient from="#e5989b" to="#ffb4a2" angle=45 relative-to="workspace-view" in="oklch longer hue"
 
-        // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
+        inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
     }
 
     // You can enable drop shadows for windows.
     shadow {
         // Uncomment the next line to enable shadows.
-        // on
+        //on
 
         // By default, the shadow draws only around its window, and not behind it.
         // Uncomment this setting to make the shadow draw behind its window.
@@ -336,12 +336,14 @@ layout {
 // See the binds section below for more spawn examples.
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
-spawn-at-startup "waybar"
+spawn-sh-at-startup "trayscale --hide-window"
 spawn-sh-at-startup "swww-daemon"
 spawn-sh-at-startup "xwayland-satellite"
 spawn-at-startup "nm-applet --indicator"
 spawn-at-startup "discover-overlay"
-spawn-at-startup "trayscale --hide-window"
+spawn-at-startup "waybar"
+spawn-at-startup "discord"
+spawn-at-startup "beeper"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
@@ -383,7 +385,7 @@ animations {
 
 // Work around WezTerm's initial configure bug
 // by setting an empty default-column-width.
-window-rule {
+/-window-rule {
     // This regular expression is intentionally made as specific as possible,
     // since this is the default config, and we want no false positives.
     // You can get away with just app-id="wezterm" if you want.
@@ -392,7 +394,7 @@ window-rule {
 }
 
 // Open the Firefox picture-in-picture player as floating by default.
-window-rule {
+/-window-rule {
     // This app-id regular expression will work for both:
     // - host Firefox (app-id is "firefox")
     // - Flatpak Firefox (app-id is "org.mozilla.firefox")
@@ -443,6 +445,7 @@ binds {
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Mod+A hotkey-overlay-title="Run an Application: wofi" { spawn-sh "wofi --show drun"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
+    Mod+U hotkey-overlay-title="Lock & Suspend PC" { spawn-sh "hyprlock & sleep 2 && systemctl suspend"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
@@ -509,8 +512,8 @@ binds {
     Mod+Ctrl+End  { move-column-to-last; }
 
     Mod+Shift+Left  { focus-monitor-left; }
-    Mod+Shift+Down  { focus-monitor-down; }
-    Mod+Shift+Up    { focus-monitor-up; }
+    Mod+Shift+Down  { focus-workspace-down; }
+    Mod+Shift+Up    { focus-workspace-up; }
     Mod+Shift+Right { focus-monitor-right; }
     // Mod+Shift+H     { focus-monitor-left; }
     // Mod+Shift+J     { focus-monitor-down; }

@@ -77,11 +77,11 @@
     };
     play = {
       url = "github:TophC7/play.nix";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        chaotic.follows = "chaotic";
-        home-manager.follows = "home-manager";
-      };
+      #inputs = {
+      #nixpkgs.follows = "nixpkgs";
+      #chaotic.follows = "chaotic";
+      #home-manager.follows = "home-manager";
+      #};
     };
     mobile-nixos = {
       url = "github:mobile-nixos/mobile-nixos";

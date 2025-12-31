@@ -11,7 +11,7 @@
 				modules-center = [ "clock" "hyprland/workspaces" "niri/workspaces" ];
 				modules-right = [ "battery" "bluetooth" "tray" "network" "pulseaudio" "custom/power" ];
         "niri/window" = {
-	        "format" = "{app_id} | {title}";
+	        "format" = "{title}";
         };
 				"niri/workspaces" = {
 					format = "{index}";
@@ -49,7 +49,7 @@
 					format-alt = "{:%a %d/%m/%Y}";
 				};
 				cpu = {
-					format = "{usage}% ";
+					format = " {usage}% ";
 					tooltip = false;
 				};
 				memory.format = "{}% ";
