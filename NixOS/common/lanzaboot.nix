@@ -7,7 +7,7 @@
 }:
 
 {
-  options = {
+  options.poaclu = {
     boot = {
       lanza = {
         enable = lib.mkOption {
@@ -29,7 +29,7 @@
     };
   };
 
-  config = lib.mkIf config.boot.lanza.enable {
+  config = lib.mkIf config.poaclu.boot.lanza.enable {
     boot = {
       loader = {
         efi = {
@@ -44,7 +44,7 @@
       };
       lanzaboote = {
         enable = true;
-        pkiBundle = config.boot.lanza.pkiBundle;
+        pkiBundle = config.poaclu.boot.lanza.pkiBundle;
       };
     };
     environment.systemPackages = with pkgs; [

@@ -13,18 +13,21 @@
     ./system-config.nix
   ];
 
-  bluetooth.enable = true;
-  boot = {
-    grub.enable = false;
-    lanza = {
-      enable = true;
-      pkiBundle = "/etc/secureboot/";
+  poaclu = {
+    bluetooth.enable = true;
+    boot = {
+      grub.enable = false;
+      lanza = {
+        enable = true;
+        pkiBundle = "/var/lib/sbctl/";
+      };
     };
+    desktop = {
+      enable = true;
+      xdg = true;
+    };
+    gaming.enable = true;
+    swap.size = 16;
   };
-  desktop = {
-    enable = true;
-    xdg = true;
-  };
-  gaming.enable = true;
   networking.hostName = "killi";
 }

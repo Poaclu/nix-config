@@ -7,7 +7,7 @@
 
 {
 
-  options = {
+  options.poaclu = {
     bluetooth = {
       enable = lib.mkOption {
         description = "Enable bluetooth";
@@ -17,7 +17,7 @@
       };
     };
   };
-  config = lib.mkIf config.bluetooth.enable {
+  config = lib.mkIf config.poaclu.bluetooth.enable {
     hardware.bluetooth = {
       enable = true; # enables support for Bluetooth
       powerOnBoot = true; # powers up the default Bluetooth controller on boot

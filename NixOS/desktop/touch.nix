@@ -6,11 +6,11 @@
 }:
 
 let 
-  cfg = config.desktop;
+  cfg = config.poaclu.desktop;
   inherit (lib) mkIf mkMerge mkForce;
 in {
 
-  options = {
+  options.poaclu = {
     desktop = {
       touch = lib.mkOption {
         description = "Enable touch compatible DE";
@@ -21,7 +21,7 @@ in {
     };
   };
 
-  config = lib.mkIf config.desktop.touch {
+  config = lib.mkIf config.poaclu.desktop.touch {
     services = {
       desktopManager.gnome.enable = true;
 

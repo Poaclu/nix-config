@@ -12,18 +12,20 @@
     ./system-config.nix
   ];
 
-  boot = {
-    grub.enable = false;
-    lanza = {
-      enable = true;
-      pkiBundle = "/var/lib/sbctl/";
+  poaclu = {
+    boot = {
+      grub.enable = false;
+      lanza = {
+        enable = true;
+        pkiBundle = "/var/lib/sbctl/";
+      };
     };
+    desktop = {
+      enable = true;
+      xdg = true;
+    };
+    gaming.enable = true;
+    swap.size = 16;
   };
-  desktop = {
-    enable = true;
-    xdg = true;
-  };
-  gaming.enable = true;
   networking.hostName = "kermel";
-  swap.size = 16;
 }

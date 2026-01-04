@@ -7,11 +7,11 @@
 }:
 
 let 
-  cfg = config.desktop;
+  cfg = config.poaclu.desktop;
   inherit (lib) mkIf mkMerge mkForce;
 in {
 
-  options = {
+  options.poaclu = {
     desktop = {
       enable = lib.mkEnableOption "Enable Desktop environment";
       xdg = lib.mkEnableOption "Enable XDG environment";
@@ -19,7 +19,7 @@ in {
     };
   };
 
-  config = lib.mkIf config.desktop.enable {
+  config = lib.mkIf config.poaclu.desktop.enable {
       systemd.user.services.xdg-desktop-portal-gtk = {
         wantedBy = [ "xdg-desktop-portal.service" ];
         before = [ "xdg-desktop-portal.service" ];
@@ -50,7 +50,7 @@ in {
         };
       };
 
-      xdg.portal = lib.mkIf config.desktop.xdg {
+      xdg.portal = lib.mkIf config.poaclu.desktop.xdg {
         enable = true;
         extraPortals = with pkgs; [
           xdg-desktop-portal-wlr

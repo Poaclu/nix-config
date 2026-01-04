@@ -4,24 +4,26 @@
   imports = [
     ./system-config.nix
   ];
-  boot = {
-    grub.enable = false;
-    plymouth_custom.enable = false;
-  };
-  bluetooth.enable = true;
   nixpkgs.config = {
     allowUnfree = true;
   };
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   
   networking.hostName = "odonata";
-  gaming.enable = false;
-  desktop = {
-    enable = true;
-    x64 = false;
-    touch = true;
+  poaclu ={
+    boot = {
+      grub.enable = false;
+      plymouth_custom.enable = false;
+    };
+    gaming.enable = false;
+    anti-virus.enable = false;
+    bluetooth.enable = true;
+    desktop = {
+      enable = true;
+      x64 = false;
+      touch = true;
+    };
   };
-  anti-virus.enable = false;
 
   mobile = {
     beautification = {

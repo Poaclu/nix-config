@@ -8,7 +8,7 @@
 
 {
   options = {
-    gaming.enable = lib.mkOption {
+    poaclu.gaming.enable = lib.mkOption {
       description = "Enable Gaming apps and features";
       type = lib.types.bool;
       default = true;
@@ -20,7 +20,7 @@
     imports = [
       inputs.play.nixosModules.play
     ];
-  config = lib.mkIf config.gaming.enable {
+  config = lib.mkIf config.poaclu.gaming.enable {
 
     play = {
       amd.enable = true;

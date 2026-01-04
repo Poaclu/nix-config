@@ -6,7 +6,7 @@
 }:
 
 {
-  options = {
+  options.poaclu = {
     boot = {
       plymouth_custom = {
         enable = lib.mkOption {
@@ -46,20 +46,20 @@
   config = {
     boot = {
       loader = {
-        systemd-boot = lib.mkIf config.boot.sysdb.enable {
+        systemd-boot = lib.mkIf config.poaclu.boot.sysdb.enable {
           enable = true;
           configurationLimit = 10;
         };
-        efi.canTouchEfiVariables = lib.mkIf config.boot.sysdb.enable true;
-        grub = lib.mkIf config.boot.grub.enable {
+        efi.canTouchEfiVariables = lib.mkIf config.poaclu.boot.sysdb.enable true;
+        grub = lib.mkIf config.poaclu.boot.grub.enable {
           enable = true;
           efiSupport = true;
           efiInstallAsRemovable = true;
           devices = [ "nodev" ];
-          timeoutStyle = config.boot.grub.timeoutStyle;
+          timeoutStyle = config.poaclu.boot.grub.timeoutStyle;
         };
       };
-      plymouth.enable = lib.mkIf config.boot.plymouth_custom.enable true;
+      plymouth.enable = lib.mkIf config.poaclu.boot.plymouth_custom.enable true;
     };
   };
 }

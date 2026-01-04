@@ -6,7 +6,7 @@
 }:
 
 {
-  options = {
+  options.poaclu = {
     swap = {
       enable = lib.mkOption {
         description = "Enable swap, only swapfile";
@@ -21,11 +21,11 @@
       };
     };
   };
-  config = lib.mkIf config.swap.enable {
+  config = lib.mkIf config.poaclu.swap.enable {
     swapDevices = [
       {
         device = "/swapfile";
-        size = config.swap.size * 1024;
+        size = config.poaclu.swap.size * 1024;
       }
     ];
   };
