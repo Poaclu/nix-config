@@ -29,7 +29,14 @@ in {
 
       services = {
         picom.enable = true;
-        displayManager.gdm.enable = true;
+        displayManager = {
+          gdm.enable = false;
+          sddm = {
+            enable = true;
+            wayland.enable = true;
+          };
+        };
+        desktopManager.plasma6.enable = true;
         pipewire = {
           enable = true;
           alsa.enable = true;
@@ -92,6 +99,7 @@ in {
           enable = true;
           package = inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.niri;
         };
+        ssh.askPassword = lib.mkForce "${pkgs.kdePackages.ksshaskpass.out}/bin/ksshaskpass";
       };
     };
 }
