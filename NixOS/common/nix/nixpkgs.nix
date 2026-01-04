@@ -38,6 +38,7 @@ in
     ];
     programs.zsh.enable = true;
     system.stateVersion = cN.version;
+    nix.optimise.automatic = true;
     nixpkgs.config = {
       allowUnfree = true;
     };
