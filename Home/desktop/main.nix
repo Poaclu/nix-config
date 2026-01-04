@@ -79,14 +79,14 @@ in {
       "jellyfin-mpv-shim/mpv.conf".text = myMPVConfig;
 		  "niri/config.kdl".source = ./config/config.kdl;
     };
-    services = {
-      dunst = {
-        enable = true;
-        settings = {
-          global = {
-            follow = "mouse";
-          };
-        };
-      };
-    };
+  #services = {
+    #dunst = {
+    #   enable = true;
+    #   settings = {
+    #     global = {
+    #       follow = "mouse";
+    #     };
+    #   };
+    # };
+  #};
 }

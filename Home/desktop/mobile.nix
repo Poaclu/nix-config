@@ -25,15 +25,15 @@
           spotify
       ];
     };
-    services = {
-      dunst = {
-        enable = true;
-        settings = {
-          global = {
-            follow = "mouse";
-          };
-        };
-      };
-    };
+    #services = {
+    # dunst = {
+    #    enable = true;
+    #   settings = {
+    #     global = {
+    #       follow = "mouse";
+    #     };
+    #   };
+    # };
+    #};
   };
 }
