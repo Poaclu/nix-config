@@ -1,7 +1,7 @@
-{ pkgs, lib, ... }:
 {
 
   imports = [
+    ./agenix.nix
     ./bluetooth.nix
     ./boot.nix
     ./console.nix

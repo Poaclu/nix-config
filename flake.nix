@@ -77,11 +77,22 @@
     };
     play = {
       url = "github:TophC7/play.nix";
-      #inputs = {
-      #nixpkgs.follows = "nixpkgs";
-      #chaotic.follows = "chaotic";
-      #home-manager.follows = "home-manager";
-      #};
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        chaotic.follows = "chaotic";
+        home-manager.follows = "home-manager";
+      };
+    };
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        darwin.follows = "";
+      };
+    };
+    secrets = {
+      url = "git+git@github.com:Poaclu/secrets.git";
+      flake = false;
     };
     mobile-nixos = {
       url = "github:mobile-nixos/mobile-nixos";
@@ -93,6 +104,7 @@
     {
       self,
       nixpkgs,
+      agenix,
       disko,
       lanzaboote,
       hyprland,
@@ -116,6 +128,7 @@
           inherit system;
           specialArgs = { inherit inputs nixpkgs; };
           modules = [
+            agenix.nixosModules.default
             lanzaboote.nixosModules.lanzaboote
             nur.modules.nixos.default
             nur.legacyPackages."${system}".repos.iopq.modules.xraya
@@ -148,6 +161,7 @@
           inherit system;
           specialArgs = { inherit inputs nixpkgs; };
           modules = [
+            agenix.nixosModules.default
             lanzaboote.nixosModules.lanzaboote
             nur.modules.nixos.default
             nur.legacyPackages."${system}".repos.iopq.modules.xraya
@@ -179,6 +193,7 @@
           specialArgs = { inherit inputs nixpkgs; };
           modules = [
             (import "${mobile-nixos}/lib/configuration.nix" { device = "oneplus-enchilada"; })
+            agenix.nixosModules.default
             lanzaboote.nixosModules.lanzaboote
             nur.modules.nixos.default
             nur.legacyPackages."${system}".repos.iopq.modules.xraya

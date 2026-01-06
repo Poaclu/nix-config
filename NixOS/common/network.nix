@@ -26,6 +26,24 @@
       enableIPv6 = false;
     };
     time.timeZone = "Europe/Paris";
-    services.tailscale.enable = true;
+    services = {
+      tailscale = {
+        enable = true;
+        authKeyFile = config.age.secrets.tailscale.path;
+        extraUpFlags = [
+          "--ssh"
+          "--accept-dns"
+          "--accept-routes"
+        ];
+      };
+      openssh = {
+        enable = true;
+        settings = {
+          PasswordAuthentication = false;
+          LoginGraceTime = 0;
+          PermitRootLogin = "no";
+        };
+      };
+    };
   };
 }
