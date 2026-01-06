@@ -91,7 +91,7 @@
       };
     };
     secrets = {
-      url = "git+git@github.com:Poaclu/secrets.git";
+      url = "git+ssh://git@github.com/Poaclu/secrets.git?shallow=1";
       flake = false;
     };
     mobile-nixos = {
@@ -111,6 +111,7 @@
       home-manager,
       nur,
       mobile-nixos,
+      secrets,
       xwayland-satellite,
       niri,
       ...

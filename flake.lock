@@ -1175,14 +1175,19 @@
     "secrets": {
       "flake": false,
       "locked": {
-        "path": "git+git@github.com:Poaclu/secrets.git",
-        "type": "path"
+        "lastModified": 1767737274,
+        "narHash": "sha256-wwXNWliP+xLMqKUECrBv/9zqs/n9yCc5bESvtlkBz1w=",
+        "ref": "refs/heads/main",
+        "rev": "f1503c4804f349588a1b682daa358e5f720b320a",
+        "shallow": true,
+        "type": "git",
+        "url": "ssh://git@github.com/Poaclu/secrets.git"
       },
       "original": {
-        "path": "git+git@github.com:Poaclu/secrets.git",
-        "type": "path"
-      },
-      "parent": []
+        "shallow": true,
+        "type": "git",
+        "url": "ssh://git@github.com/Poaclu/secrets.git"
+      }
     },
     "systems": {
       "locked": {
