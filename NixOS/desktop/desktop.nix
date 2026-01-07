@@ -2,7 +2,7 @@
   config,
   lib,
   pkgs,
-  inputs,
+  self,
   ...
 }:
 
@@ -86,7 +86,7 @@ in {
         waybar
         wlogout
         wofi
-        inputs.xwayland-satellite.packages.${pkgs.stdenv.hostPlatform.system}.default
+        self.inputs.xwayland-satellite.packages.${pkgs.stdenv.hostPlatform.system}.default
       ];
 
       programs = {
@@ -97,7 +97,7 @@ in {
         };
         niri = {
           enable = true;
-          package = inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.niri;
+          package = self.inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.niri;
         };
         ssh.askPassword = lib.mkForce "${pkgs.kdePackages.ksshaskpass.out}/bin/ksshaskpass";
       };

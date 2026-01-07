@@ -38,10 +38,6 @@
       #inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nur = {
-      url = "github:nix-community/NUR";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     ## App specific iputs
     hyprland = {
       url = "github:hyprwm/Hyprland";
@@ -75,6 +71,12 @@
         home-manager.follows = "home-manager";
       };
     };
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs = {
+        nixpkgs-lib.follows = "nixpkgs";
+      };
+    };
     play = {
       url = "github:TophC7/play.nix";
       inputs = {
@@ -86,8 +88,8 @@
     agenix = {
       url = "github:ryantm/agenix";
       inputs = {
+        home-manager.follows = "home-manager";
         nixpkgs.follows = "nixpkgs";
-        darwin.follows = "";
       };
     };
     secrets = {
@@ -96,144 +98,20 @@
     };
     mobile-nixos = {
       url = "github:mobile-nixos/mobile-nixos";
-      flake = false; # We import it directly, not as a flake
+      flake = false;
     };
   };
 
-  outputs =
-    {
-      self,
-      nixpkgs,
-      agenix,
-      disko,
-      lanzaboote,
-      hyprland,
-      home-manager,
-      nur,
-      mobile-nixos,
-      secrets,
-      xwayland-satellite,
-      niri,
-      ...
-    }@inputs:
-    let 
-      system = "x86_64-linux";
-      pkgs = import nixpkgs { 
-        inherit system;
-        overlays = [ nur.overlays.default ];
-      };
-      # helper for pure HM targets
-    in {
-      nixosConfigurations = {
-        killi = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = { inherit inputs nixpkgs; };
-          modules = [
-            agenix.nixosModules.default
-            lanzaboote.nixosModules.lanzaboote
-            nur.modules.nixos.default
-            nur.legacyPackages."${system}".repos.iopq.modules.xraya
-            ./hosts/killi/configuration.nix
-            ./NixOS/common
-            ./NixOS/desktop
-            ./Common
-            home-manager.nixosModules.home-manager {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = { inherit inputs; };
-              home-manager.backupFileExtension = "bak";
-              home-manager.users.poaclu = { ... }: {
-              imports = [
-                inputs.zen-browser.homeModules.beta
-                inputs.nvf.homeManagerModules.default
-                ./Home/shell
-                ./Home/desktop
-                ./Home/main.nix
-                ./Home/user.nix
-                ./Common
-                ./hosts/killi/home.nix
-              ];
-              _module.args.inputs = inputs;
-              };
-            }
-          ];
-        };
-        kermel = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = { inherit inputs nixpkgs; };
-          modules = [
-            agenix.nixosModules.default
-            lanzaboote.nixosModules.lanzaboote
-            nur.modules.nixos.default
-            nur.legacyPackages."${system}".repos.iopq.modules.xraya
-            ./hosts/kermel/configuration.nix
-            ./NixOS/common
-            ./NixOS/desktop
-            ./Common
-            home-manager.nixosModules.home-manager {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.backupFileExtension = "bak";
-              home-manager.users.poaclu = { ... }: {
-              imports = [
-                inputs.zen-browser.homeModules.beta
-                inputs.nvf.homeManagerModules.default
-                ./Home/shell
-                ./Home/desktop
-                ./Home/main.nix
-                ./Home/user.nix
-                ./Common
-              ];
-              _module.args.inputs = inputs;
-              };
-            }
-          ];
-        };
-        odonata = nixpkgs.lib.nixosSystem {
-          system = "aarch64-linux";
-          specialArgs = { inherit inputs nixpkgs; };
-          modules = [
-            (import "${mobile-nixos}/lib/configuration.nix" { device = "oneplus-enchilada"; })
-            agenix.nixosModules.default
-            lanzaboote.nixosModules.lanzaboote
-            nur.modules.nixos.default
-            nur.legacyPackages."${system}".repos.iopq.modules.xraya
-            ./hosts/odonata/configuration.nix
-            ./NixOS/common
-            ./NixOS/desktop
-            ./Common
-            home-manager.nixosModules.home-manager {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.backupFileExtension = "bak";
-              home-manager.users.poaclu = { ... }: {
-              imports = [
-                inputs.zen-browser.homeModules.beta
-                inputs.nvf.homeManagerModules.default
-                ./Home/shell
-                ./Home/desktop
-                ./Home/main.nix
-                ./Home/user.nix
-                ./Common
-                ./hosts/odonata/home.nix
-              ];
-              _module.args.inputs = inputs;
-            };
-          }
-        ];
-      };
-    };
-    homeConfigurations = {
-      poaclu = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [
-          ./Home/shell
-          ./Home/main.nix
-          ./Home/user.nix
-          ./Common
-          inputs.nvf.homeManagerModules.default
-        ];
-      };
-    };
+  outputs = inputs:
+    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
+    systems = [
+      "x86_64-linux"
+      "aarch64-linux"
+    ];
+    imports = [
+      ./NixOS
+      ./Home
+    ];
+    _module.args.inputs = inputs;
   };
 }

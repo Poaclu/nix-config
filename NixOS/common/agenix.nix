@@ -1,19 +1,19 @@
 {
-  inputs,
+  self,
   ...
 }:
 {
   age = {
     secrets = {
-      tailscale.file = "${inputs.secrets}/tailscale.age";
+      tailscale.file = "${self.inputs.secrets}/tailscale.age";
       poaclu = {
-        file = "${inputs.secrets}/poaclu.age";
+        file = "${self.inputs.secrets}/poaclu.age";
         #mode = "0440";
         #owner = "poaclu";
         #group = "poaclu";
       };
       root = {
-        file = "${inputs.secrets}/root.age";
+        file = "${self.inputs.secrets}/root.age";
         mode = "0440";
         owner = "root";
         group = "root";

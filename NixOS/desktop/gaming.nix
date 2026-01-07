@@ -2,7 +2,6 @@
   config,
   lib,
   pkgs,
-  inputs,
   ...
 }:
 
@@ -17,9 +16,6 @@
   };
 
 
-    imports = [
-      inputs.play.nixosModules.play
-    ];
   config = lib.mkIf config.poaclu.gaming.enable {
 
     play = {

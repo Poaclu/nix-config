@@ -1,12 +1,5 @@
 {
-  config,
-  inputs,
-  ...
-}:
-
-{
   imports = [
-    inputs.disko.nixosModules.default
     ./disko-config.nix
     ./hardware-configuration.nix
     ./system-config.nix
