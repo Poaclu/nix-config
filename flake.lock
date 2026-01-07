@@ -1175,10 +1175,10 @@
     "secrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1767737274,
-        "narHash": "sha256-wwXNWliP+xLMqKUECrBv/9zqs/n9yCc5bESvtlkBz1w=",
+        "lastModified": 1767774229,
+        "narHash": "sha256-CkbkgjpChlqTL/weigkX+uL7FU6onp54nRzVXd78TKs=",
         "ref": "refs/heads/main",
-        "rev": "f1503c4804f349588a1b682daa358e5f720b320a",
+        "rev": "8aea1671d352f7ecdf02005c2d8c0435f03b258b",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/Poaclu/secrets.git"

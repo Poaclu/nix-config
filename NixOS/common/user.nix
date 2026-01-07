@@ -30,7 +30,7 @@
     users.users.${config.user.username} = {
       isNormalUser = true;
       shell = pkgs.zsh;
-      initialHashedPassword = "$y$j9T$DiwYx30Ij0FYJ/wZPwics0$v2xSCXofFQNwCNPydviUj0598fCnZCRs/TBtV.Uid/8";
+      initialHashedPassword = config.age.secrets.poaclu.path;
       extraGroups = [
         "wheel"
         "networkmanager"

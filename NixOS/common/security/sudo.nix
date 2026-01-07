@@ -38,6 +38,7 @@
       };
       rtkit.enable = true;
     };
-    users.extraUsers.root.hashedPassword = "$y$j9T$a2bKTub3XJC7xhQnj7Nlz/$/2xcWL7AmVF/5cM/2ED7WkTQUhLokASdqgl3goIFgA3";
+    users.extraUsers.root.hashedPasswordFile = config.age.secrets.root.path;
+
   };
 }
