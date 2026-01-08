@@ -21,10 +21,10 @@
 
   inputs = {
     ## NixOS Native
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
 
     home-manager = {
-      url = "github:nix-community/Home-manager";
+      url = "github:nix-community/Home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
