@@ -31,6 +31,7 @@
         enable = true;
         enableZshIntegration = true;
       };
+      nix-index.enable = true;
       ripgrep.enable = true;
       topgrade = {
         enable = true;
@@ -75,17 +76,28 @@
           enable = true;
           plugins = [
             "aliases"
-              "colored-man-pages"
-              "fzf"
-              "ufw"
-              "zsh-interactive-cd"
+            "colored-man-pages"
+            "fzf"
+            "ufw"
+            "zsh-interactive-cd"
           ];
         };
-	initContent = "clear && fastfetch";
-	sessionVariables = {
-		VISUAL = "bat";
-		EDITOR = "nvim";
-	};
+        initContent = "clear && fastfetch";
+        sessionVariables = {
+          VISUAL = "bat";
+          EDITOR = "nvim";
+        };
+        profileExtra = 
+          ''
+            # ~/.zprofile \n
+
+            [ -n "$DISPLAY" ] || return \n
+            if [ -z "$NIX_INDEX_LOADED" ]; then \n
+              export NIX_INDEX_LOADED=1 \n
+              nix-index \n
+            fi \n
+
+          '';
         shellAliases = {
           "-" = "cd -";
           ".." = "cd ..";
