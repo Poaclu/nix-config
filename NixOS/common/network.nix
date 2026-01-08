@@ -35,6 +35,7 @@
           "--accept-dns"
           "--accept-routes"
         ];
+        extraSetFlags = [ "--operator=poaclu" ];
       };
       openssh = {
         enable = true;
