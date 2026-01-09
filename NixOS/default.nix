@@ -10,7 +10,7 @@
           inherit self;
         };
         modules = [
-          ../hosts/killi/configuration.nix
+          ./hosts/killi/configuration.nix
           ({ pkgs, ... }: {
             imports = [
               ./common
@@ -35,7 +35,7 @@
                   ../Home/main.nix
                   ../Home/user.nix
                   ../Common
-                  ../hosts/killi/home.nix
+                  ./hosts/killi/home.nix
                 ];
               }
             ];
@@ -47,7 +47,7 @@
           inherit self;
         };
         modules = [
-          ../hosts/kermel/configuration.nix
+          ./hosts/kermel/configuration.nix
           ({ pkgs, ... }: {
             imports = [
               ./common
@@ -83,7 +83,7 @@
           inherit self;
         };
         modules = [
-          ../hosts/odonata/configuration.nix
+          ./hosts/odonata/configuration.nix
           ({ pkgs, ... }: {
             imports = [
               (import "${self.inputs.mobile-nixos}/lib/configuration.nix" { device = "oneplus-enchilada"; })
@@ -109,7 +109,7 @@
                   ../Home/main.nix
                   ../Home/user.nix
                   ../Common
-                  ../hosts/odonata/home.nix
+                  ./hosts/odonata/home.nix
                 ];
               }
             ];
