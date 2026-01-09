@@ -89,13 +89,19 @@
         };
         profileExtra = 
           ''
-            # ~/.zprofile \n
+            # ~/.zprofile
 
-            [ -n "$DISPLAY" ] || return \n
-            if [ -z "$NIX_INDEX_LOADED" ]; then \n
-              export NIX_INDEX_LOADED=1 \n
-              nix-index \n
-            fi \n
+            if [ -n "$SSH_CONNECTION" ];
+              if [ -z "$ZELLIJ" ];
+               exec zellij attach --create
+              fi
+            fi
+
+            [ -n "$DISPLAY" ] || return
+            if [ -z "$NIX_INDEX_LOADED" ]; then
+              export NIX_INDEX_LOADED=1
+              nix-index
+            fi
 
           '';
         shellAliases = {
