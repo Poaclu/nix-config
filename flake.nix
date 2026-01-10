@@ -22,34 +22,42 @@
   inputs = {
     ## NixOS Native
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager = {
       url = "github:nix-community/Home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    home-manager-unstable = {
+      url = "github:nix-community/Home-manager/master";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
     disko = {
       url = "github:nix-community/disko";
-      #inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     lanzaboote = {
-      url = "github:nix-community/lanzaboote/v0.4.2";
-      #inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/lanzaboote/v1.0.0";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
     ## App specific iputs
     hyprland = {
       url = "github:hyprwm/Hyprland";
-      #inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     niri = {
       url = "github:YaLTeR/niri";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     
     xwayland-satellite = {
       url = "github:Supreeeme/xwayland-satellite";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     zen-browser = {
@@ -61,28 +69,32 @@
     };
     nvf = {
       url = "github:notashelf/nvf";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-parts.follows = "flake-parts";
+      };
     };
     ## Extensions
     chaotic = {
       url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
       inputs = {
-        nixpkgs.follows = "nixpkgs";
-        home-manager.follows = "home-manager";
+        nixpkgs.follows = "nixpkgs-unstable";
+        home-manager.follows = "home-manager-unstable";
+        jovian.follows = "jovian";
       };
     };
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
       inputs = {
-        nixpkgs-lib.follows = "nixpkgs";
+        nixpkgs-lib.follows = "nixpkgs-unstable";
       };
     };
     play = {
       url = "github:TophC7/play.nix";
       inputs = {
-        nixpkgs.follows = "nixpkgs";
+        nixpkgs.follows = "nixpkgs-unstable";
         chaotic.follows = "chaotic";
-        home-manager.follows = "home-manager";
+        home-manager.follows = "home-manager-unstable";
       };
     };
     agenix = {
@@ -99,6 +111,10 @@
     mobile-nixos = {
       url = "github:mobile-nixos/mobile-nixos";
       flake = false;
+    };
+    jovian = {
+      url = "github:Jovian-Experiments/Jovian-NixOS";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
   };
 
