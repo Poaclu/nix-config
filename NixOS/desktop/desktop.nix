@@ -30,11 +30,7 @@ in {
       services = {
         picom.enable = true;
         displayManager = {
-          gdm.enable = false;
-          sddm = {
-            enable = true;
-            wayland.enable = true;
-          };
+          gdm.enable = true;
         };
         desktopManager.plasma6.enable = true;
         pipewire = {
