@@ -34,7 +34,7 @@ in {
         "DSI-1,prefered,auto,2,vrr,1,transform,1"
 					", preferred, auto, auto, vrr, 1, cm, auto"
 			];
-			"$terminal" = "kitty";
+			"$terminal" = "kitty -o hide_window_decorations=yes";
 			"$fileManager" = "nautilus";
 			"$apps" = "wofi --show drun";
 			"$browser" = "zen-beta";
