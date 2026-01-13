@@ -342,8 +342,9 @@ spawn-sh-at-startup "xwayland-satellite"
 spawn-at-startup "nm-applet --indicator"
 spawn-at-startup "discover-overlay"
 spawn-at-startup "waybar"
-spawn-at-startup "discord"
-spawn-at-startup "beeper"
+spawn-at-startup "discord --start-minimized"
+spawn-at-startup "beeper --no-sandbox"
+spawn-at-startup "steam -silent"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
