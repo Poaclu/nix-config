@@ -27,15 +27,18 @@
     };
   };
   config = lib.mkIf config.user.enable {
-    users.users.${config.user.username} = {
-      isNormalUser = true;
-      shell = pkgs.zsh;
-      initialHashedPassword = config.age.secrets.poaclu.path;
-      extraGroups = [
-        "wheel"
-        "networkmanager"
-        "mlocate"
-      ];
+    users= {
+      mutableUsers = false; #All users password are reset at boot
+      users.${config.user.username} = {
+        isNormalUser = true;
+        shell = pkgs.zsh;
+        hashedPasswordFile = config.age.secrets.poaclu.path;
+        extraGroups = [
+          "wheel"
+          "networkmanager"
+          "mlocate"
+        ];
+      };
     };
   };
 }
