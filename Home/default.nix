@@ -20,7 +20,7 @@ self,
           ./shell
           ./main.nix
           ./user.nix
-          ../Common
+          ../common
           self.inputs.nvf.homeManagerModules.default
         ];
       };

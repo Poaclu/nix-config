@@ -15,7 +15,7 @@
             imports = [
               ./common
               ./desktop
-              ../Common
+              ../common
               self.inputs.agenix.nixosModules.default
               self.inputs.play.nixosModules.play
               self.inputs.lanzaboote.nixosModules.lanzaboote
@@ -34,7 +34,7 @@
                   ../Home/desktop
                   ../Home/main.nix
                   ../Home/user.nix
-                  ../Common
+                  ../common
                   ./hosts/killi/home.nix
                 ];
               }
@@ -52,7 +52,7 @@
             imports = [
               ./common
               ./desktop
-              ../Common
+              ../common
               self.inputs.agenix.nixosModules.default
               self.inputs.play.nixosModules.play
               self.inputs.lanzaboote.nixosModules.lanzaboote
@@ -71,7 +71,7 @@
                   ../Home/desktop
                   ../Home/main.nix
                   ../Home/user.nix
-                  ../Common
+                  ../common
                 ];
               }
             ];
@@ -89,7 +89,7 @@
               (import "${self.inputs.mobile-nixos}/lib/configuration.nix" { device = "oneplus-enchilada"; })
               ./common
               ./desktop
-              ../Common
+              ../common
               self.inputs.agenix.nixosModules.default
               self.inputs.play.nixosModules.play
               self.inputs.lanzaboote.nixosModules.lanzaboote
@@ -108,7 +108,7 @@
                   ../Home/desktop
                   ../Home/main.nix
                   ../Home/user.nix
-                  ../Common
+                  ../common
                   ./hosts/odonata/home.nix
                 ];
               }
