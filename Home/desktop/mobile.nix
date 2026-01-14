@@ -19,7 +19,7 @@ in
       };
     };
   };
-  config = lib.mkIf config.desktop.x64 {
+  config = lib.mkIf (config.desktop.enable && config.desktop.x64) {
     home = {
       packages = [
 #pkgsUnstable.beeper

@@ -21,7 +21,7 @@ in {
     };
   };
 
-  config = lib.mkIf config.poaclu.desktop.touch {
+  config = lib.mkIf (config.poaclu.desktop.enable && config.poaclu.desktop.touch) {
     services = {
       desktopManager.gnome.enable = true;
 

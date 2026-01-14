@@ -16,7 +16,7 @@
   };
 
 
-  config = lib.mkIf config.poaclu.gaming.enable {
+  config = lib.mkIf (config.poaclu.desktop.enable && config.poaclu.gaming.enable) {
 
     play = {
       amd.enable = true;
