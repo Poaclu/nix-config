@@ -26,19 +26,19 @@ in
     };
   };
   config = lib.mkIf cN.enable {
-    system = lib.mkIf cN.upgrade {
-      autoUpgrade = {
+    system = {
+      autoUpgrade = lib.mkIf cN.upgrade {
         enable = true;
         dates = "daily";
         operation = "boot";
         flake = inputs.self.outPath;
         flags = [
-          "--flake ~/sources/nix-config/"
+          "--flake /etc/nixos"
           "--update-input"
           "nixpkgs"
           "-L" # print build logs
         ];
-        persistent = true;
+        allowReboot = true;
         rebootWindow = {
           lower = "01:00";
           upper = "05:00";
