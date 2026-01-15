@@ -38,7 +38,12 @@ in
     ];
     programs.zsh.enable = true;
     system.stateVersion = cN.version;
-    nix.optimise.automatic = true;
+    nix = {
+      optimise.automatic = true;
+      settings.access-tokens = [
+        "github.com=$(cat ${config.age.secrets.gh_token.path})"
+      ];
+    };
     nixpkgs.config = {
       allowUnfree = true;
     };

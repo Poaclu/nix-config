@@ -18,6 +18,12 @@
         owner = "root";
         group = "root";
       };
+      gh_token = {
+        file = "${self.inputs.secrets}/gh_token.age";
+        mode = "0440";
+        owner = "root";
+        group = "root";
+      };
     };
     identityPaths = [
       "/etc/ssh/ssh_host_ed25519_key"
