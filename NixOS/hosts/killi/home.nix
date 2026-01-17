@@ -1,0 +1,5 @@
+{
+  shell.distrobox = {
+    enable = true;
+  };
+} 

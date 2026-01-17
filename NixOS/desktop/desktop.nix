@@ -1,0 +1,101 @@
+{
+  config,
+  lib,
+  pkgs,
+  self,
+  ...
+}:
+
+let 
+  cfg = config.poaclu.desktop;
+  inherit (lib) mkIf mkMerge mkForce;
+in {
+
+  options.poaclu = {
+    desktop = {
+      enable = lib.mkEnableOption "Enable Desktop environment";
+      xdg = lib.mkEnableOption "Enable XDG environment";
+      x64 = lib.mkEnableOption "Enable x64 cpu apps";
+    };
+  };
+
+  config = lib.mkIf config.poaclu.desktop.enable {
+      systemd.user.services.xdg-desktop-portal-gtk = {
+        wantedBy = [ "xdg-desktop-portal.service" ];
+        before = [ "xdg-desktop-portal.service" ];
+      };
+
+      virtualisation.waydroid.enable = true;
+
+      services = {
+        picom.enable = true;
+        displayManager = {
+          gdm.enable = true;
+        };
+        desktopManager.plasma6.enable = true;
+        pipewire = {
+          enable = true;
+          alsa.enable = true;
+          alsa.support32Bit = true;
+          pulse.enable = true;
+          jack.enable = true;
+        };
+        xserver = {
+          enable = true;
+          xkb.layout = "fr";
+        };
+      };
+
+      xdg.portal = lib.mkIf config.poaclu.desktop.xdg {
+        enable = true;
+        extraPortals = with pkgs; [
+          xdg-desktop-portal-wlr
+          kdePackages.xdg-desktop-portal-kde
+          xdg-desktop-portal-gtk
+        ];
+        wlr = {
+          enable = true;
+          settings = {
+            # uninteresting for this problem, for completeness only
+            screencast = {
+              output_name = "eDP-1";
+              max_fps = 30;
+              chooser_type = "simple";
+              chooser_cmd = "${pkgs.slurp}/bin/slurp -f %o -or";
+            };
+          };
+        };
+      };
+
+      environment.systemPackages = with pkgs; [
+        alacritty
+        cliphist
+        libnotify
+        grim
+        hyprpaper
+        kitty
+        networkmanagerapplet
+        rofi
+        slurp
+        swaylock
+        swww
+        waybar
+        wlogout
+        wofi
+        self.inputs.xwayland-satellite.packages.${pkgs.stdenv.hostPlatform.system}.default
+      ];
+
+      programs = {
+        firefox.enable = true;
+        hyprland = {
+          enable = true;
+          xwayland.enable = true;
+        };
+        niri = {
+          enable = true;
+          package = self.inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.niri;
+        };
+        ssh.askPassword = lib.mkForce "${pkgs.kdePackages.ksshaskpass.out}/bin/ksshaskpass";
+      };
+    };
+}
