@@ -45,6 +45,7 @@
       lanzaboote = {
         enable = true;
         pkiBundle = config.poaclu.boot.lanza.pkiBundle;
+        configurationLimit = 10;
       };
     };
     environment.systemPackages = with pkgs; [
