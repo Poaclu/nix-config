@@ -40,9 +40,7 @@ in
     system.stateVersion = cN.version;
     nix = {
       optimise.automatic = true;
-      settings.access-tokens = [
-        "github.com=$(cat ${config.age.secrets.gh_token.path})"
-      ];
+      extraOptions = "!include ${config.age.secrets.gh_token.path}";
     };
     nixpkgs.config = {
       allowUnfree = true;
