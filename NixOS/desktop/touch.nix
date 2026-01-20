@@ -24,12 +24,6 @@ in {
   config = lib.mkIf (config.poaclu.desktop.enable && config.poaclu.desktop.touch) {
     services = {
       desktopManager.gnome.enable = true;
-
-
-      xserver = {
-        enable = true;
-        xkb.layout = "fr";
-      };
       #xserver.desktopManager = {
       #  phosh = {
       #    enable = true;
