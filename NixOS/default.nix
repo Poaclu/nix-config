@@ -21,7 +21,6 @@
               self.inputs.lanzaboote.nixosModules.lanzaboote
               self.inputs.disko.nixosModules.disko
               self.inputs.home-manager.nixosModules.home-manager {
-                home-manager.useGlobalPkgs = true;
                 home-manager.useUserPackages = true;
                 home-manager.backupFileExtension = "bak";
                 home-manager.extraSpecialArgs = {
@@ -58,7 +57,6 @@
               self.inputs.lanzaboote.nixosModules.lanzaboote
               self.inputs.disko.nixosModules.disko
               self.inputs.home-manager.nixosModules.home-manager {
-                home-manager.useGlobalPkgs = true;
                 home-manager.useUserPackages = true;
                 home-manager.backupFileExtension = "bak";
                 home-manager.extraSpecialArgs = {
@@ -95,7 +93,6 @@
               self.inputs.lanzaboote.nixosModules.lanzaboote
               self.inputs.disko.nixosModules.disko
               self.inputs.home-manager.nixosModules.home-manager {
-                home-manager.useGlobalPkgs = true;
                 home-manager.useUserPackages = true;
                 home-manager.backupFileExtension = "bak";
                 home-manager.extraSpecialArgs = {
@@ -132,7 +129,6 @@
               self.inputs.lanzaboote.nixosModules.lanzaboote
               self.inputs.disko.nixosModules.disko
               self.inputs.home-manager.nixosModules.home-manager {
-                home-manager.useGlobalPkgs = true;
                 home-manager.useUserPackages = true;
                 home-manager.backupFileExtension = "bak";
                 home-manager.extraSpecialArgs = {
