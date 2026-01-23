@@ -30,6 +30,7 @@
       bottles
       lutris
       mangohud
+      gamescope
       protonup-qt
       protonplus
       r2modman
