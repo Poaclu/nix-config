@@ -30,7 +30,8 @@ in {
       services = {
         picom.enable = true;
         displayManager = {
-          gdm.enable = true;
+#gdm.enable = true;
+          cosmic-greeter.enable = true;
         };
         desktopManager = {
           plasma6.enable = true;
@@ -49,30 +50,13 @@ in {
         };
       };
 
-      xdg.portal = lib.mkIf config.poaclu.desktop.xdg {
-        enable = true;
-        extraPortals = with pkgs; [
-          xdg-desktop-portal-wlr
-          kdePackages.xdg-desktop-portal-kde
-          xdg-desktop-portal-gtk
-        ];
-        wlr = {
-          enable = true;
-          settings = {
-            # uninteresting for this problem, for completeness only
-            screencast = {
-              output_name = "eDP-1";
-              max_fps = 30;
-              chooser_type = "simple";
-              chooser_cmd = "${pkgs.slurp}/bin/slurp -f %o -or";
-            };
-          };
-        };
-      };
-
       environment.systemPackages = with pkgs; [
+        adwaita-icon-theme
         alacritty
+        alsa-utils
         cliphist
+        cosmic-bg
+        cosmic-wallpapers
         libnotify
         grim
         hyprpaper
