@@ -3,7 +3,7 @@ let
   pkgsUnstable = import inputs.nixpkgs-unstable { inherit (pkgs) system; };
 in
 { 
-  options = {
+  options.poaclu = {
     desktop = {
       enable = lib.mkOption {
         description = "Enable desktop apps";
@@ -19,7 +19,7 @@ in
       };
     };
   };
-  config = lib.mkIf (config.desktop.enable && config.desktop.x64) {
+  config = lib.mkIf (config.poaclu.desktop.enable && config.poaclu.desktop.x64) {
     home = {
       packages = [
 #pkgsUnstable.beeper

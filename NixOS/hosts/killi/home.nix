@@ -1,5 +1,7 @@
 {
-  shell.distrobox = {
-    enable = true;
+  poaclu = {
+    shell.distrobox = {
+      enable = true;
+    };
   };
 } 

@@ -5,7 +5,7 @@
   lib,
   ... }:
 let 
-	cfg = config.desktop;
+	cfg = config.poaclu.desktop;
 in {
 
 
@@ -15,7 +15,7 @@ in {
     trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
   };
 
-	wayland.windowManager.hyprland = lib.mkIf config.desktop.enable {
+	wayland.windowManager.hyprland = lib.mkIf cfg.enable {
 		enable = true;
 		package = 
 			if cfg.x64 then

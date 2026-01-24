@@ -6,8 +6,8 @@
 }:
 
 {
-  options = {
-    poaclu.gaming.enable = lib.mkOption {
+  options.poaclu = {
+    gaming.enable = lib.mkOption {
       description = "Enable Gaming apps and features";
       type = lib.types.bool;
       default = true;

@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }: let
 username = "poaclu";
 in { 
-  options = {
+  options.poaclu = {
     shell = {
       btop = {
         enable = lib.mkOption {
@@ -19,7 +19,7 @@ in {
       };
     };
   };  
-  config = lib.mkIf config.shell.btop.enable {
+  config = lib.mkIf config.poaclu.shell.btop.enable {
     programs.btop = {
       enable = true;
       settings = {

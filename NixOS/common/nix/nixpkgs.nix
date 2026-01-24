@@ -6,11 +6,11 @@
 }:
 
 let
-  cpkgs = config.nixpkgs;
-  cN = config.customNix;
+  cpkgs = config.poaclu.nixpkgs;
+  cN = config.poaclu.customNix;
 in
 {
-  options = {
+  options.poaclu = {
     customNix = {
       version = lib.mkOption {
         type = lib.types.str;

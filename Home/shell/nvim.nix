@@ -6,7 +6,7 @@ self,
 ...
 }: 
 {
-  options = {
+  options.poaclu = {
     shell.nvim = {
       enable = lib.mkOption {
         description = "Enable Shell config for neovim config";
@@ -16,7 +16,7 @@ self,
       };
     };
   };
-  config = lib.mkIf config.shell.nvim.enable {
+  config = lib.mkIf config.poaclu.shell.nvim.enable {
     home = {
       sessionVariables = {
         EDITOR = "nvim";

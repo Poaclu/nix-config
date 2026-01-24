@@ -1,6 +1,6 @@
 { config, pkgs, lib, ... }:
 { 
-  options = {
+  options.poaclu = {
     shell.distrobox = {
       enable = lib.mkOption {
         description = "Enable distrobox";
@@ -10,7 +10,7 @@
       };
     };
   };  
-  config = lib.mkIf config.shell.distrobox.enable {
+  config = lib.mkIf config.poaclu.shell.distrobox.enable {
     programs = {
       distrobox = {
         enable = true;

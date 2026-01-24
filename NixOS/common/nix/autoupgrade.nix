@@ -7,10 +7,10 @@
 }:
 
 let
-  cN = config.customNix;
+  cN = config.poaclu.customNix;
 in
 {
-  options = {
+  options.poaclu = {
     customNix = {
       enable = lib.mkOption {
         description = "Enable Nix automatic gestion";

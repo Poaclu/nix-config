@@ -7,7 +7,7 @@
 
 {
 
-  options = {
+  options.poaclu = {
     sudo = {
       enable = lib.mkOption {
         description = "Enable Security feature : Sudo";
@@ -23,7 +23,7 @@
       };
     };
   };
-  config = lib.mkIf config.sudo.enable {
+  config = lib.mkIf config.poaclu.sudo.enable {
     security = {
       sudo = {
         enable = true;
@@ -32,7 +32,7 @@
             					Cmnd_Alias	REBOOT = /sbin/halt, /sbin/reboot, /sbin/poweroff
             					%wheel ALL=NOPASSWD: REBOOT
             					''
-          + lib.optionalString config.sudo.rootpw ''
+          + lib.optionalString config.poaclu.sudo.rootpw ''
             					Defaults rootpw
             					'';
       };

@@ -1,8 +1,10 @@
 {
-  desktop = {
-    enable = false;
-  };
-  shell.distrobox = {
-    enable = true;
+  poaclu = {
+    desktop = {
+      enable = false;
+    };
+    shell.distrobox = {
+      enable = true;
+    };
   };
 } 

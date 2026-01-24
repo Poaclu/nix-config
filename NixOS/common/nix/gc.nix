@@ -7,10 +7,10 @@
 }:
 
 let
-  gc = config.garbage;
+  gc = config.poaclu.garbage;
 in
 {
-  options = {
+  options.poaclu = {
     garbage.enable = lib.mkOption {
       default = true;
       type = lib.types.bool;

@@ -6,7 +6,7 @@
 }:
 
 {
-  options = {
+  options.poaclu = {
     console_fr = {
       enable = lib.mkOption {
         description = "Enable french console";
@@ -17,7 +17,7 @@
     };
   };
 
-  config = lib.mkIf config.console_fr.enable {
+  config = lib.mkIf config.poaclu.console_fr.enable {
     i18n.defaultLocale = "fr_FR.UTF-8";
     console.keyMap = "fr";
   };

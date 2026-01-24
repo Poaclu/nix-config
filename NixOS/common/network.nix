@@ -7,7 +7,7 @@
 
 {
 
-  options = {
+  options.poaclu = {
     network = {
       enable = lib.mkOption {
         description = "Enable Security feature : Sudo";
@@ -17,7 +17,7 @@
       };
     };
   };
-  config = lib.mkIf config.network.enable {
+  config = lib.mkIf config.poaclu.network.enable {
     environment.systemPackages = [
       pkgs.networkmanagerapplet
     ];

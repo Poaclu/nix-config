@@ -6,7 +6,7 @@
 }:
 
 {
-  options = {
+  options.poaclu = {
     user = {
       enable = lib.mkOption {
         description = "Enable user";
@@ -26,10 +26,10 @@
       #};
     };
   };
-  config = lib.mkIf config.user.enable {
+  config = lib.mkIf config.poaclu.user.enable {
     users= {
       mutableUsers = false; #All users password are reset at boot
-      users.${config.user.username} = {
+      users.${config.poaclu.user.username} = {
         isNormalUser = true;
         shell = pkgs.zsh;
         hashedPasswordFile = config.age.secrets.poaclu.path;
