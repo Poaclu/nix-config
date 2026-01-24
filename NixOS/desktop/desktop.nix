@@ -32,7 +32,10 @@ in {
         displayManager = {
           gdm.enable = true;
         };
-        desktopManager.plasma6.enable = true;
+        desktopManager = {
+          plasma6.enable = true;
+          cosmic.enable = true;
+        };
         pipewire = {
           enable = true;
           alsa.enable = true;
