@@ -13,8 +13,8 @@
           ./hosts/killi/configuration.nix
           ({ pkgs, ... }: {
             imports = [
-              ./common
-              ./desktop
+              ./modules/common
+              ./modules/desktop
               ../common
               self.inputs.agenix.nixosModules.default
               self.inputs.play.nixosModules.play
@@ -49,8 +49,8 @@
           ./hosts/kermel/configuration.nix
           ({ pkgs, ... }: {
             imports = [
-              ./common
-              ./desktop
+              ./modules/common
+              ./modules/desktop
               ../common
               self.inputs.agenix.nixosModules.default
               self.inputs.play.nixosModules.play
@@ -85,8 +85,8 @@
           ({ pkgs, ... }: {
             imports = [
               (import "${self.inputs.mobile-nixos}/lib/configuration.nix" { device = "oneplus-enchilada"; })
-              ./common
-              ./desktop
+              ./modules/common
+              ./modules/desktop
               ../common
               self.inputs.agenix.nixosModules.default
               self.inputs.play.nixosModules.play
@@ -121,8 +121,8 @@
           ./hosts/coruscant/configuration.nix
           ({ pkgs, ... }: {
             imports = [
-              ./common
-              ./desktop
+              ./modules/common
+              ./modules/desktop
               ../common
               self.inputs.agenix.nixosModules.default
               self.inputs.play.nixosModules.play
