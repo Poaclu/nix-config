@@ -20,10 +20,10 @@ in {
   };
 
   config = lib.mkIf config.poaclu.desktop.enable {
-      systemd.user.services.xdg-desktop-portal-gtk = {
-        wantedBy = [ "xdg-desktop-portal.service" ];
-        before = [ "xdg-desktop-portal.service" ];
-      };
+    #systemd.user.services.xdg-desktop-portal-gtk = {
+    #wantedBy = [ "xdg-desktop-portal.service" ];
+    #before = [ "xdg-desktop-portal.service" ];
+    #};
 
       virtualisation.waydroid.enable = true;
 

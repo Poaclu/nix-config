@@ -21,7 +21,6 @@ let
 in { 
     home = {
       packages = with pkgs; [
-        brave
         brightnessctl
         cachix
         discover-overlay

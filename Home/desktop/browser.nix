@@ -1,6 +1,19 @@
-{ config, inputs, pkgs, ... }:
-{ programs = {
-  zen-browser.enable = true;
+{ 
+  pkgs,
+  inputs,
+  ...
+}:
+{ 
+  home = {
+    packages = with pkgs; [
+      brave
+      inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default
+    ];
+  };
+
+
+  programs = {
+    zen-browser.enable = true;
   #firefox = {
   #  enable = true;
   #  languagePacks = [ "fr" "en-US" ];
@@ -49,5 +62,5 @@
   #    };
   #  };
   #};
-};
+  };
 }
