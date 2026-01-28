@@ -32,7 +32,7 @@ in
   flake.nixosConfigurations = 
       let
         nixpkgsMap = {
-          killi = ""; #"-unstable";
+          killi = "-unstable";
         };
         systemArchMap = {
           odonata = "aarch64-linux";
