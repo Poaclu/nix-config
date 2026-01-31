@@ -55,7 +55,7 @@
           enable = true;
           efiSupport = true;
           efiInstallAsRemovable = true;
-          devices = [ "nodev" ];
+          #devices = [ "nodev" ];
           timeoutStyle = config.poaclu.boot.grub.timeoutStyle;
         };
       };

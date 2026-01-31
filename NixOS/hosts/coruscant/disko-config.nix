@@ -2,12 +2,17 @@
   disko.devices = {
     disk = {
       main = {
-        device = "/dev/disk/by-diskseq/9";
+        device = "/dev/sda";
         type = "disk";
         content = {
           type = "gpt";
           partitions = {
-            ESP = {
+            boot = {
+              name = "boot";
+              size = "2M";
+              type = "EF02";
+            };
+            esp = {
               priority = 1;
               name = "ESP";
               type = "EF00";
@@ -16,7 +21,6 @@
                 type = "filesystem";
                 format = "vfat";
                 mountpoint = "/boot";
-                mountOptions = [ "umask=0077" ];
               };
             };
             root = {
