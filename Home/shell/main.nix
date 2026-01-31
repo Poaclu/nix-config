@@ -91,12 +91,6 @@
           ''
             # ~/.zprofile
 
-            if [ -n "$SSH_CONNECTION" ];
-              if [ -z "$ZELLIJ" ];
-               exec zellij attach --create
-              fi
-            fi
-
             [ -n "$DISPLAY" ] || return
             if [ -z "$NIX_INDEX_LOADED" ]; then
               export NIX_INDEX_LOADED=1
