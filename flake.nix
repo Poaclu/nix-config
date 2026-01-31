@@ -110,10 +110,6 @@
         nixpkgs.follows = "nixpkgs";
       };
     };
-    secrets = {
-      url = "git+ssh://git@github.com/Poaclu/secrets.git?shallow=1";
-      flake = false;
-    };
     mobile-nixos = {
       url = "github:mobile-nixos/mobile-nixos";
       flake = false;

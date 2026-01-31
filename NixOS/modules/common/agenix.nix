@@ -5,21 +5,21 @@
 {
   age = {
     secrets = {
-      tailscale.file = "${self.inputs.secrets}/tailscale.age";
+      tailscale.file = ../secrets/tailscale.age;
       poaclu = {
-        file = "${self.inputs.secrets}/poaclu.age";
+        file = ../secrets/poaclu.age;
         #mode = "0440";
         #owner = "poaclu";
         #group = "poaclu";
       };
       root = {
-        file = "${self.inputs.secrets}/root.age";
+        file = ../secrets/root.age;
         mode = "0440";
         owner = "root";
         group = "root";
       };
       gh_token = {
-        file = "${self.inputs.secrets}/gh_token.age";
+        file = ../secrets/gh_token.age;
         mode = "0440";
         owner = "root";
         group = "root";

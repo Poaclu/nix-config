@@ -1071,7 +1071,6 @@
         "nixpkgs-unstable": "nixpkgs-unstable",
         "nvf": "nvf",
         "play": "play",
-        "secrets": "secrets",
         "xwayland-satellite": "xwayland-satellite",
         "zen-browser": "zen-browser"
       }
@@ -1158,23 +1157,6 @@
         "owner": "oxalica",
         "repo": "rust-overlay",
         "type": "github"
-      }
-    },
-    "secrets": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1768854277,
-        "narHash": "sha256-i/AR6DLQcJoApvfy+ci43tOe7b1oCglHPuOQeXrEzAY=",
-        "ref": "refs/heads/main",
-        "rev": "c9aa763020f6437c71eebd33b832bb08e9e03fc5",
-        "shallow": true,
-        "type": "git",
-        "url": "ssh://git@github.com/Poaclu/secrets.git"
-      },
-      "original": {
-        "shallow": true,
-        "type": "git",
-        "url": "ssh://git@github.com/Poaclu/secrets.git"
       }
     },
     "systems": {
