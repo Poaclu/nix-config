@@ -22,4 +22,5 @@
     swap.size = 16;
   };
   networking.hostName = "killi";
+  hardware.amdgpu.opencl.enable = true;
 }
