@@ -41,7 +41,7 @@
         enable = true;
         enable32Bit = true;
       };
-      xone.enable = true;
+      xpadneo.enable = true;
     };
     services.xserver.videoDrivers = [ "amdgpu" ];
   };
