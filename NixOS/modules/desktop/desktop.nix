@@ -19,13 +19,12 @@ in {
     };
   };
 
-  config = lib.mkIf config.poaclu.desktop.enable {
+  config = lib.mkIf cfg.enable {
     #systemd.user.services.xdg-desktop-portal-gtk = {
     #wantedBy = [ "xdg-desktop-portal.service" ];
     #before = [ "xdg-desktop-portal.service" ];
     #};
 
-      virtualisation.waydroid.enable = true;
 
       services = {
         picom.enable = true;
@@ -85,5 +84,10 @@ in {
         };
         ssh.askPassword = lib.mkForce "${pkgs.kdePackages.ksshaskpass.out}/bin/ksshaskpass";
       };
+      virtualisation = lib.mkIf cfg.x64 {
+        virtualbox.host.enable = true;
+        waydroid.enable = true;
+      };
+      users.extraGroups.vboxusers.members = [ "poaclu" ];
     };
 }

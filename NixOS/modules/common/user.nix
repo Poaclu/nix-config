@@ -37,6 +37,7 @@
           "wheel"
           "networkmanager"
           "mlocate"
+          "vboxusers"
         ];
       };
     };
