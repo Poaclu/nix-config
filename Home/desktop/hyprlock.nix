@@ -1,5 +1,12 @@
-{ config, inputs, pkgs, lib, ... }:
-{
+{ 
+  config, 
+  lib, 
+  ... 
+}:
+let 
+	cfg = config.poaclu.desktop;
+in {
+  config = lib.mkIf cfg.enable {
 	programs.hyprlock = {
 		enable = true;
 		settings = {

@@ -1,9 +1,14 @@
 { 
   pkgs,
   inputs,
+  lib,
+  config,
   ...
 }:
-{ 
+let 
+	cfg = config.poaclu.desktop;
+in {
+  config = lib.mkIf cfg.enable {
   home = {
     packages = with pkgs; [
       brave
@@ -62,5 +67,6 @@
   #    };
   #  };
   #};
+  };
   };
 }

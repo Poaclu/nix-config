@@ -1,5 +1,13 @@
-{ config, pkgs, lib, ... }:
 { 
+  config,
+  lib,
+  ...
+}:
+let 
+	cfg = config.poaclu.desktop;
+in {
+  config = lib.mkIf cfg.enable {
+ 
     programs = {
       swaylock = {
         enable = true;

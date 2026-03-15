@@ -7,7 +7,7 @@
 let 
 	cfg = config.poaclu.desktop;
 in {
-
+  config = lib.mkIf cfg.enable {
 
   nix.settings = {
     substituters = ["https://hyprland.cachix.org"];
@@ -200,4 +200,5 @@ in {
 				];
 		};
 	};
+  };
 }

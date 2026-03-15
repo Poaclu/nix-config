@@ -1,4 +1,9 @@
-{ pkgs, ... }:
+{ 
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 let 
   myMPVConfig = ''
         fullscreen=yes
@@ -18,8 +23,10 @@ let
         cscale=ewa_lanczossharp
         dscale=mitchell
   '';
-in { 
 
+	cfg = config.poaclu.desktop;
+in {
+  config = lib.mkIf cfg.enable {
     home = {
       packages = with pkgs; [
         brightnessctl
