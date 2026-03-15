@@ -19,10 +19,10 @@ let
         dscale=mitchell
   '';
 in { 
+
     home = {
       packages = with pkgs; [
         brightnessctl
-        cachix
         discover-overlay
         font-awesome
         jellyfin-mpv-shim
