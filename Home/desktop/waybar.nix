@@ -158,4 +158,5 @@ in {
 		"waybar/mediaplayer.py".source = ./config/mediaplayer.py;
 		"waybar/power_menu.xml".source = ./config/power_menu.xml;
 	};
+  };
 }
