@@ -82,7 +82,7 @@
             "zsh-interactive-cd"
           ];
         };
-        initContent = "clear && fastfetch";
+        initContent = "[[ -o interactive ]] && fastfetch";
         sessionVariables = {
           VISUAL = "bat";
           EDITOR = "nvim";
