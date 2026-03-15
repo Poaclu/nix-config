@@ -62,6 +62,7 @@ in {
         hyprpaper
         kitty
         networkmanagerapplet
+        protonvpn-gui
         rofi
         slurp
         swaylock

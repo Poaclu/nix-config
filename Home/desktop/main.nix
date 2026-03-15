@@ -38,7 +38,6 @@ in {
         pavucontrol
         playerctl
         prismlauncher
-        protonvpn-gui
 	      swww
         trayscale
         xfce.thunar
