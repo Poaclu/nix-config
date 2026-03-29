@@ -3,6 +3,7 @@
   lib,
   pkgs,
   self,
+  inputs,
   ...
 }:
 
@@ -18,6 +19,7 @@ in {
       x64 = lib.mkEnableOption "Enable x64 cpu apps";
     };
   };
+
 
   config = lib.mkIf cfg.enable {
     #systemd.user.services.xdg-desktop-portal-gtk = {
@@ -83,6 +85,10 @@ in {
           package = self.inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.niri;
         };
         ssh.askPassword = lib.mkForce "${pkgs.kdePackages.ksshaskpass.out}/bin/ksshaskpass";
+        steelseriesgg-rs = {
+          enable = true;
+          user = "poaclu";
+      };
       };
       virtualisation = lib.mkIf cfg.x64 {
         virtualbox.host.enable = true;

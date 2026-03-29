@@ -70,6 +70,7 @@ in
                 self.inputs.play.nixosModules.play
                 self.inputs.lanzaboote.nixosModules.lanzaboote
                 self.inputs.disko.nixosModules.disko
+                self.nixosModules.steelseriesgg-rs
                 self.inputs."home-manager${
                   lib.attrsets.attrByPath [ name ] "" nixpkgsMap
                 }".nixosModules.home-manager

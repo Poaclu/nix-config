@@ -129,6 +129,7 @@
     imports = [
       ./NixOS
       ./Home
+      ./pkgs
     ];
     _module.args.inputs = inputs;
   };
