@@ -32,7 +32,7 @@ in
   flake.nixosConfigurations = 
       let
         nixpkgsMap = {
-          killi = "-unstable";
+        #killi = "-unstable";
         };
         systemArchMap = {
           odonata = "aarch64-linux";
@@ -67,7 +67,6 @@ in
                 ./modules/desktop
                 ../common
                 self.inputs.agenix.nixosModules.default
-                self.inputs.play.nixosModules.play
                 self.inputs.lanzaboote.nixosModules.lanzaboote
                 self.inputs.disko.nixosModules.disko
                 self.nixosModules.steelseriesgg-rs

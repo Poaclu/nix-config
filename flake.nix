@@ -81,26 +81,10 @@
       };
     };
     ## Extensions
-    chaotic = {
-      url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-      inputs = {
-        nixpkgs.follows = "nixpkgs-unstable";
-        home-manager.follows = "home-manager-unstable";
-        jovian.follows = "jovian";
-      };
-    };
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
       inputs = {
         nixpkgs-lib.follows = "nixpkgs-unstable";
-      };
-    };
-    play = {
-      url = "github:TophC7/play.nix";
-      inputs = {
-        nixpkgs.follows = "nixpkgs-unstable";
-        chaotic.follows = "chaotic";
-        home-manager.follows = "home-manager-unstable";
       };
     };
     agenix = {

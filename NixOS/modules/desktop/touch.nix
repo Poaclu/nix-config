@@ -23,7 +23,10 @@ in {
 
   config = lib.mkIf (config.poaclu.desktop.enable && config.poaclu.desktop.touch) {
     services = {
-      desktopManager.gnome.enable = true;
+      desktopManager = {
+        gnome.enable = true;
+        lomiri.enable = true;
+      };
       #xserver.desktopManager = {
       #  phosh = {
       #    enable = true;

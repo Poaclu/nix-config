@@ -29,10 +29,11 @@ in {
 
 
       services = {
-        picom.enable = true;
+      #picom.enable = true;
         displayManager = {
-#gdm.enable = true;
-          cosmic-greeter.enable = true;
+          defaultSession = null;
+          gdm.enable = true;
+        #cosmic-greeter.enable = true;
         };
         desktopManager = {
           plasma6.enable = true;
@@ -71,6 +72,8 @@ in {
         waybar
         wlogout
         wofi
+        kdePackages.qtwebsockets
+        python3Minimal
         self.inputs.xwayland-satellite.packages.${pkgs.stdenv.hostPlatform.system}.default
       ];
 

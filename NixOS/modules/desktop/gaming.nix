@@ -18,13 +18,12 @@
 
   config = lib.mkIf (config.poaclu.desktop.enable && config.poaclu.gaming.enable) {
 
-    play = {
-      amd.enable = true;
+    programs = {
       steam.enable = true;
-      lutris.enable = true;
       gamemode.enable = true;
-      ananicy.enable = true;
     };
+
+    services.ananicy.enable = true;
 
     environment.systemPackages = with pkgs; [
       bottles
@@ -34,7 +33,10 @@
       protonup-qt
       protonplus
       r2modman
-      (heroic.override {extraPkgs = pkgs: [gamescope];})
+      (heroic.override {extraPkgs = pkgs: [
+        gamescope
+        unzip
+      ];})
     ];
     hardware = {
       graphics = {

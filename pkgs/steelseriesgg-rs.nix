@@ -13,11 +13,11 @@ rustPlatform.buildRustPackage {
   src = fetchFromGitHub {
     owner = "Ven0m0";
     repo  = "steelseriesgg-rs";
-    rev   = "main";
-    hash  = "sha256-XQQe4QSJjMo8O+ptgSEfU1mkR2Rg8DXQQqAytfl6Mm8=";
+    rev   = "4a4dfb46ff066fcee96e1db795badae9ef1226ef";
+    hash  = "sha256-BANyLv16QgGDZ8d2/y4uTCQI2cODRC3MqTqvingRYvw=";
   };
 
-  cargoHash = "sha256-ToNbpG+vqLG1QKudjdAmkkYui/+0RKYc63n/mIrvDss=";
+  cargoHash = "sha256-tDaWYgelLcTh99QgzOIoOH7fzXJAuGp0X7OjmmirkO4=";
 
   doCheck = false; # skip tests — upstream bug in security_diagnostics.rs
 

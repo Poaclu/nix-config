@@ -22,6 +22,11 @@ in {
   config = lib.mkIf config.poaclu.shell.btop.enable {
     programs.btop = {
       enable = true;
+      package = 
+			  if config.poaclu.desktop.x64 then
+          pkgs.btop-rocm
+			  else 
+          pkgs.btop;
       settings = {
         color_theme = "TTY";
         theme_background = false;

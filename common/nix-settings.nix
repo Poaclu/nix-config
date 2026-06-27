@@ -5,6 +5,7 @@
         "nix-command"
         "flakes"
       ];
+      download-buffer-size = 500000000; # 500 MB
       trusted-users = [
         "poaclu"
         "root"

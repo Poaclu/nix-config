@@ -22,6 +22,14 @@ let
         scale=ewa_lanczossharp
         cscale=ewa_lanczossharp
         dscale=mitchell
+        hdr-compute-peak=true
+        tone-mapping=bt.2390
+        target-peak=400
+        transcode_h265=false
+        transcode_hi10p
+        direct_paths=true
+        local_kbps=100000
+        remote_kbps=100000
   '';
 
 	cfg = config.poaclu.desktop;
