@@ -14,7 +14,6 @@ let
       inherit (self) inputs;
     };
     home-manager.users.poaclu.imports = [
-      self.inputs.zen-browser.homeModules.beta
       self.inputs.nvf.homeManagerModules.default
       ../Home/shell
       ../Home/desktop
@@ -69,7 +68,7 @@ in
                 self.inputs.agenix.nixosModules.default
                 self.inputs.lanzaboote.nixosModules.lanzaboote
                 self.inputs.disko.nixosModules.disko
-                self.nixosModules.steelseriesgg-rs
+                #self.nixosModules.steelseriesgg-rs
                 self.inputs."home-manager${
                   lib.attrsets.attrByPath [ name ] "" nixpkgsMap
                 }".nixosModules.home-manager

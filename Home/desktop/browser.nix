@@ -17,8 +17,7 @@ in {
   };
 
 
-  programs = {
-    zen-browser.enable = true;
+    #programs = {
   #firefox = {
   #  enable = true;
   #  languagePacks = [ "fr" "en-US" ];
@@ -67,6 +66,6 @@ in {
   #    };
   #  };
   #};
-  };
+    #};
   };
 }

@@ -17,6 +17,13 @@
 
 
   config = lib.mkIf (config.poaclu.desktop.enable && config.poaclu.gaming.enable) {
+    boot = {
+      initrd.kernelModules = [ "amdgpu" ];
+      kernelParams = [
+        "video=DP-1:2560x1440@165"
+        "video=HDMI-A-1:1920x1080@75"
+      ];
+    };
 
     programs = {
       steam.enable = true;
@@ -27,6 +34,7 @@
 
     environment.systemPackages = with pkgs; [
       bottles
+      clinfo
       lutris
       mangohud
       gamescope
@@ -42,9 +50,15 @@
       graphics = {
         enable = true;
         enable32Bit = true;
+        extraPackages = with pkgs; [
+          rocmPackages.clr.icd
+        ];
       };
       xpadneo.enable = true;
     };
-    services.xserver.videoDrivers = [ "amdgpu" ];
+    services.xserver = {
+      enable = true;
+      videoDrivers = [ "amdgpu" ];
+    };
   };
 }

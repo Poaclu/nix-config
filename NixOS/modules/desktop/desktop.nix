@@ -2,14 +2,11 @@
   config,
   lib,
   pkgs,
-  self,
-  inputs,
   ...
 }:
 
 let 
   cfg = config.poaclu.desktop;
-  inherit (lib) mkIf mkMerge mkForce;
 in {
 
   options.poaclu = {
@@ -22,18 +19,10 @@ in {
 
 
   config = lib.mkIf cfg.enable {
-    #systemd.user.services.xdg-desktop-portal-gtk = {
-    #wantedBy = [ "xdg-desktop-portal.service" ];
-    #before = [ "xdg-desktop-portal.service" ];
-    #};
-
-
       services = {
-      #picom.enable = true;
         displayManager = {
           defaultSession = null;
           gdm.enable = true;
-        #cosmic-greeter.enable = true;
         };
         desktopManager = {
           plasma6.enable = true;
@@ -74,24 +63,11 @@ in {
         wofi
         kdePackages.qtwebsockets
         python3Minimal
-        self.inputs.xwayland-satellite.packages.${pkgs.stdenv.hostPlatform.system}.default
       ];
 
       programs = {
         firefox.enable = true;
-        hyprland = {
-          enable = true;
-          xwayland.enable = true;
-        };
-        niri = {
-          enable = true;
-          package = self.inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.niri;
-        };
         ssh.askPassword = lib.mkForce "${pkgs.kdePackages.ksshaskpass.out}/bin/ksshaskpass";
-        steelseriesgg-rs = {
-          enable = true;
-          user = "poaclu";
-      };
       };
       virtualisation = lib.mkIf cfg.x64 {
         virtualbox.host.enable = true;
