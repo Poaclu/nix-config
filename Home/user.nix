@@ -1,6 +1,6 @@
-{ config, pkgs, lib, ... }:
+{ config, lib, ... }:
 { 
-  options.poaclu = {
+  options.poaclu.home = {
     user = {
       enable = lib.mkOption {
         description = "Enable user config for Home-manager config";
@@ -15,10 +15,10 @@
       };
     };
   };  
-  config = lib.mkIf config.poaclu.user.enable {
+  config = lib.mkIf config.poaclu.home.user.enable {
     home = {
-      username = config.poaclu.user.name;
-      homeDirectory = "/home/${config.poaclu.user.name}";
+      username = config.poaclu.home.user.name;
+      homeDirectory = "/home/${config.poaclu.home.user.name}";
     };
   };
 }

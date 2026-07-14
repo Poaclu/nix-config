@@ -1,6 +1,6 @@
 { config, pkgs, lib, ... }:
 { 
-  options.poaclu = {
+  options.poaclu.home = {
     shell = {
       enable = lib.mkOption {
         description = "Enable Shell config for user config";
@@ -10,7 +10,7 @@
       };
     };
   };  
-  config = lib.mkIf config.poaclu.shell.enable {
+  config = lib.mkIf config.poaclu.home.shell.enable {
     home = {
       stateVersion = "24.11"; # DO NOT CHANGE : The state version is required and should stay at the version you originally installed.
       packages = with pkgs; [

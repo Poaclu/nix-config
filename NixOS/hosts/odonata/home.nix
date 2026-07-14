@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 {
-  poaclu = {
+  poaclu.home = {
     desktop = {
       enable = true;
       x64 = false;

@@ -1,5 +1,5 @@
 {
-  poaclu = {
+  poaclu.home = {
     desktop = {
       enable = false;
     };

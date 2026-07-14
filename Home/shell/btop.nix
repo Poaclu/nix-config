@@ -1,7 +1,6 @@
-{ config, pkgs, lib, ... }: let
-username = "poaclu";
-in { 
-  options.poaclu = {
+{ config, pkgs, lib, ... }:
+{ 
+  options.poaclu.home = {
     shell = {
       btop = {
         enable = lib.mkOption {
@@ -19,11 +18,11 @@ in {
       };
     };
   };  
-  config = lib.mkIf config.poaclu.shell.btop.enable {
+  config = lib.mkIf config.poaclu.home.shell.btop.enable {
     programs.btop = {
       enable = true;
       package = 
-			  if config.poaclu.desktop.x64 then
+			  if config.poaclu.home.desktop.x64 then
           pkgs.btop-rocm
 			  else 
           pkgs.btop;

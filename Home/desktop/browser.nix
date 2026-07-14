@@ -6,7 +6,7 @@
   ...
 }:
 let 
-	cfg = config.poaclu.desktop;
+	cfg = config.poaclu.home.desktop;
 in {
   config = lib.mkIf cfg.enable {
   home = {

@@ -1,6 +1,6 @@
 { config, pkgs, lib, ... }:
 { 
-  options.poaclu = {
+  options.poaclu.home = {
     shell.git = {
       enable = lib.mkOption {
         description = "Enable Shell config for user config";
@@ -20,14 +20,14 @@
       };
     };
   };  
-  config = lib.mkIf config.poaclu.shell.git.enable {
+  config = lib.mkIf config.poaclu.home.shell.git.enable {
     programs = {
       git = {
         enable = true;
         settings = {
           user = {
-            name = config.poaclu.shell.git.user;
-            email = config.poaclu.shell.git.mail;
+            name = config.poaclu.home.shell.git.user;
+            email = config.poaclu.home.shell.git.mail;
           };
           core.editor = "nvim";
         };
