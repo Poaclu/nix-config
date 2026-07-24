@@ -1,5 +1,6 @@
 {
 self,
+lib,
 ...
 }:
 let
@@ -22,5 +23,15 @@ in
         ];
       };
     };
+  };
+  perSystem = { system, config, ... }:
+  let
+    relevantHomeConfigs = lib.filterAttrs
+      (_: hmCfg: hmCfg.activationPackage.system or null == system)
+      self.homeConfigurations;
+  in {
+    checks = lib.mapAttrs'
+      (name: hmCfg: lib.nameValuePair "homeConfig-${name}" hmCfg.activationPackage)
+      relevantHomeConfigs;
   };
 }
