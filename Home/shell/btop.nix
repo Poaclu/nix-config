@@ -22,10 +22,10 @@
     programs.btop = {
       enable = true;
       package = 
-			  if config.poaclu.home.desktop.x64 then
-          pkgs.btop-rocm
+			  if pkgs.stdenv.hostPlatform.isAarch64 then
+          pkgs.btop
 			  else 
-          pkgs.btop;
+          pkgs.btop-rocm;
       settings = {
         color_theme = "TTY";
         theme_background = false;
