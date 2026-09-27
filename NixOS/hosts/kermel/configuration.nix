@@ -15,6 +15,7 @@
     };
     desktop = {
       enable = true;
+      x64 = true;
       xdg = true;
     };
     gaming.enable = true;

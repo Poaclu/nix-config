@@ -17,6 +17,7 @@
     desktop = {
       enable = true;
       xdg = true;
+      x64 = true;
     };
     gaming.enable = true;
     swap.size = 16;

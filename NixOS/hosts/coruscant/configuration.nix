@@ -1,4 +1,8 @@
 {
+  pkgs,
+  ...
+}:
+{
   imports = [
     ./disko-config.nix
     ./hardware-configuration.nix
@@ -9,4 +13,5 @@
     desktop.enable = false;
   };
   networking.hostName = "coruscant";
+  environment.systemPackages = [ pkgs.kitty.terminfo ];
 }

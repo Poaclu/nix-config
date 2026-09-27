@@ -45,7 +45,7 @@
     ## App specific iputs
     helium = {
       url = "github:vikingnope/helium-browser-nix-flake";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      #inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
     nvf = {
