@@ -18,7 +18,7 @@
 
   config = lib.mkIf (config.poaclu.desktop.enable && config.poaclu.gaming.enable) {
     boot = {
-      initrd.kernelModules = [ "amdgpu" ];
+      #initrd.kernelModules = [ "amdgpu" ];
       kernelParams = [
         "video=DP-1:2560x1440@165"
         "video=HDMI-A-1:1920x1080@75"
@@ -58,7 +58,7 @@
     };
     services.xserver = {
       enable = true;
-      videoDrivers = [ "amdgpu" ];
+      #videoDrivers = [ "amdgpu" ];
     };
   };
 }
