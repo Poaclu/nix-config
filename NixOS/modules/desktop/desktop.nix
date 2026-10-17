@@ -53,6 +53,7 @@ in {
         hyprpaper
         kitty
         networkmanagerapplet
+        distrobox
         protonvpn-gui
         rofi
         slurp
@@ -72,6 +73,10 @@ in {
       virtualisation = lib.mkIf cfg.x64 {
         virtualbox.host.enable = true;
         waydroid.enable = true;
+        podman = {
+          enable = true;
+          dockerCompat = true;
+        };
       };
       users.extraGroups.vboxusers.members = [ "poaclu" ];
     };
