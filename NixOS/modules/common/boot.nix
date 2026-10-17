@@ -48,7 +48,7 @@
       loader = {
         systemd-boot = lib.mkIf config.poaclu.boot.sysdb.enable {
           enable = true;
-          configurationLimit = 10;
+          configurationLimit = 5;
         };
         efi.canTouchEfiVariables = lib.mkIf config.poaclu.boot.sysdb.enable true;
         grub = lib.mkIf config.poaclu.boot.grub.enable {
