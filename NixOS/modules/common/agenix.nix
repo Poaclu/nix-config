@@ -20,9 +20,8 @@
       };
       gh_token = {
         file = ../secrets/gh_token.age;
-        mode = "0440";
-        owner = "root";
-        group = "root";
+        mode = "0400";
+        owner = "poaclu";
       };
     };
     identityPaths = [
