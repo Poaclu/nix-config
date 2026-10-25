@@ -26,7 +26,11 @@
     };
 
     programs = {
-      steam.enable = true;
+      steam = {
+        enable = true;
+        protontricks.enable = true;
+        extraCompatPackages = [ pkgs.proton-ge-bin ];
+      };
       gamemode.enable = true;
     };
 
