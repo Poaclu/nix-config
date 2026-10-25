@@ -28,6 +28,7 @@ in {
           plasma6.enable = true;
           cosmic.enable = true;
         };
+        usbmuxd.enable = true;
         pipewire = {
           enable = true;
           alsa.enable = true;
