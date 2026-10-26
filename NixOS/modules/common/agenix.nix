@@ -23,6 +23,11 @@
         mode = "0400";
         owner = "poaclu";
       };
+      caddy-env = {
+        file = ../secrets/caddy-env.age;
+        mode = "0400";
+        owner = "poaclu";
+      };
     };
     identityPaths = [
       "/etc/ssh/ssh_host_ed25519_key"

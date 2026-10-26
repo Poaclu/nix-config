@@ -11,6 +11,7 @@
 
   poaclu = {
     desktop.enable = false;
+    server.caddy.enable = true;
   };
   networking.hostName = "coruscant";
   environment.systemPackages = [ pkgs.kitty.terminfo ];

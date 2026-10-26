@@ -64,6 +64,7 @@ in
               modules = [
                 ./modules/common
                 ./modules/desktop
+                ./modules/server
                 ../common
                 self.inputs.agenix.nixosModules.default
                 self.inputs.lanzaboote.nixosModules.lanzaboote

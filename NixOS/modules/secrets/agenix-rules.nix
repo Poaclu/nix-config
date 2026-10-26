@@ -17,4 +17,5 @@ in
   "poaclu.age".publicKeys = systems ++ users ++ tailscale;
   "root.age".publicKeys = systems ++ users ++ tailscale;
   "gh_token.age".publicKeys = systems ++ users ++ tailscale;
+  "caddy-env.age".publicKeys = systems ++ users ++ tailscale;
 }
