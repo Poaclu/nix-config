@@ -45,6 +45,7 @@
       protonup-qt
       protonplus
       r2modman
+      xivlauncher
       (heroic.override {extraPkgs = pkgs: [
         gamescope
         unzip
